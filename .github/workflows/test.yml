@@ -140,7 +140,7 @@ jobs:
 
   test-os:
     name: Test on ${{ matrix.os }}
-    timeout-minutes: 45
+    timeout-minutes: 60
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
@@ -214,7 +214,7 @@ jobs:
   migration-test:
     name: Migration Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 45
 
     strategy:
       fail-fast: true
