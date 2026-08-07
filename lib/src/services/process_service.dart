@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:io';
 
+import '../utils/exceptions.dart';
 import 'base_service.dart';
 
 class ProcessService extends ContextualService {
@@ -64,18 +66,41 @@ class ProcessService extends ContextualService {
 
       return processResult;
     }
-    final process = await Process.start(
-      command,
-      args,
-      workingDirectory: workingDirectory,
-      environment: environment,
-      runInShell: runInShell,
-      mode: ProcessStartMode.inheritStdio,
-    );
+    StreamSubscription<ProcessSignal>? sigintSubscription;
+    var interrupted = false;
+    if (!Platform.isWindows && context.stdinHasTerminal) {
+      sigintSubscription = ProcessSignal.sigint.watch().listen((_) {
+        interrupted = true;
+      });
+    }
+
+    late final Process process;
+    late final int processExitCode;
+    try {
+      process = await Process.start(
+        command,
+        args,
+        workingDirectory: workingDirectory,
+        environment: environment,
+        runInShell: runInShell,
+        mode: ProcessStartMode.inheritStdio,
+      );
+
+      if (interrupted) {
+        process.kill(ProcessSignal.sigint);
+      }
+      processExitCode = await process.exitCode;
+    } finally {
+      await sigintSubscription?.cancel();
+    }
+
+    if (interrupted) {
+      throw ForceExit('', 128 + ProcessSignal.sigint.signalNumber);
+    }
 
     processResult = ProcessResult(
       process.pid,
-      await process.exitCode,
+      processExitCode,
       null,
       null,
     );
