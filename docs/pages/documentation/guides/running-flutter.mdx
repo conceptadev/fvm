@@ -51,6 +51,18 @@ You can also call the SDK directly using the symlink:
 .fvm/flutter_sdk/bin/flutter run
 ```
 
+## Cancelling commands
+
+On macOS and Linux, FVM forwards `SIGTERM` received during a proxied command
+to its direct child, waits for that child to finish cleanup, then exits with
+status `143`. This also applies when stdin is not a terminal. Terminal Ctrl+C
+continues to wait for child cleanup before exiting with status `130`.
+
+This does not supervise every descendant or detect the death of FVM's own
+parent. A CI runner that owns a separate process group should cancel that group
+and wait for it to exit. Children that ignore `SIGTERM` may require the runner's
+timeout policy; `SIGKILL` cannot be forwarded or handled by FVM.
+
 ## Spawn Command
 
 Run commands with any installed Flutter version:

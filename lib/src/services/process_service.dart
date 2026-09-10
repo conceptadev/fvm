@@ -116,7 +116,18 @@ class ProcessService extends ContextualService {
       return processResult;
     }
     StreamSubscription<ProcessSignal>? sigintSubscription;
+    StreamSubscription<ProcessSignal>? sigtermSubscription;
+    Process? activeProcess;
     var interrupted = false;
+    var terminated = false;
+    if (!Platform.isWindows) {
+      // CI and process supervisors may signal only FVM, rather than the
+      // terminal's foreground group. Keep the child owned until it exits.
+      sigtermSubscription = ProcessSignal.sigterm.watch().listen((_) {
+        terminated = true;
+        activeProcess?.kill(ProcessSignal.sigterm);
+      });
+    }
     if (!Platform.isWindows && context.stdinHasTerminal) {
       sigintSubscription = ProcessSignal.sigint.watch().listen((_) {
         interrupted = true;
@@ -136,14 +147,26 @@ class ProcessService extends ContextualService {
         mode: ProcessStartMode.inheritStdio,
       );
 
+      // Read by the signal callback after the asynchronous spawn completes.
+      // ignore: avoid-unused-assignment
+      activeProcess = process;
+      // A signal received while Process.start was pending must not be lost.
+      if (terminated) {
+        process.kill(ProcessSignal.sigterm);
+      }
       if (interrupted) {
         process.kill(ProcessSignal.sigint);
       }
       processExitCode = await process.exitCode;
     } finally {
+      // Stop forwarding before yielding to any other subscription cleanup.
+      await sigtermSubscription?.cancel();
       await sigintSubscription?.cancel();
     }
 
+    if (terminated) {
+      throw ForceExit('', 128 + ProcessSignal.sigterm.signalNumber);
+    }
     if (interrupted) {
       throw ForceExit('', 128 + ProcessSignal.sigint.signalNumber);
     }

@@ -1,3 +1,7 @@
+## 4.3.2
+
+* fix: forward SIGTERM received by FVM to its proxied child on macOS/Linux, wait for child cleanup, and exit with status 143. This also works for non-interactive callers and preserves terminal Ctrl+C cleanup.
+
 ## 4.3.1
 
 * fix: wait for proxied Flutter commands to finish cleanup after Ctrl+C before FVM exits with status 130, preventing terminals from being left in raw mode (#1054)
