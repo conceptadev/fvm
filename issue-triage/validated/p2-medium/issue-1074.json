@@ -1,0 +1,28 @@
+{
+  "number": 1074,
+  "title": "[Feature Request] Support using different Flutter SDK versions based on the target platform",
+  "triagedAt": "2026-09-08",
+  "reviewedAt": "2026-09-08",
+  "priority": "p2-medium",
+  "status": "validated",
+  "artifact": "../../artifacts/issue-1074.md",
+  "url": "https://github.com/leoafarias/fvm/issues/1074",
+  "notes": "Keep P2 (new): platform-based automatic SDK routing is not implemented. Explicit FVM flavors are a workaround, not equivalent; coordinate SDK-family design with #1042.",
+  "related_issues": [
+    1042,
+    757
+  ],
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2 (new): platform-based automatic SDK routing is not implemented. Explicit FVM flavors are a workaround, not equivalent; coordinate SDK-family design with #1042.",
+  "codeOrSource": "lib/src/models/config_model.dart:232; lib/src/commands/flavor_command.dart:34",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-09-08T06:00:46Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-09-08T06:06:48Z",
+    "lastDiscussionAt": null
+  }
+}

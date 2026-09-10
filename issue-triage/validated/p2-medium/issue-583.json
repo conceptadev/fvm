@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-583.md",
   "url": "https://github.com/leoafarias/fvm/issues/583",
-  "notes": "Add an `fvm upgrade` workflow (with `--force`/`--remove-old`) that resolves the latest channel release, installs it, and switches the global SDK without manual remove/global steps."
+  "notes": "Keep P2: fvm cleanup does not install upgrades or switch the global SDK; the upgrade workflow request remains.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: fvm cleanup does not install upgrades or switch the global SDK; the upgrade workflow request remains.",
+  "codeOrSource": "lib/src/commands/cleanup_command.dart; lib/src/runner.dart",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2023-12-07T18:27:17Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2023-12-07T18:27:17Z",
+    "lastDiscussionAt": null
+  }
 }

@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-577.md",
   "url": "https://github.com/leoafarias/fvm/issues/577",
-  "notes": "Allow `fvm install` to read `environment.flutter` from pubspec.yaml (via a new flag or fallback), resolve the constraint to a concrete release, and install that version automatically."
+  "notes": "Keep P2: pubspec Flutter-constraint resolution is still an enhancement; installing an explicitly pinned version is not equivalent.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: pubspec Flutter-constraint resolution is still an enhancement; installing an explicitly pinned version is not equivalent.",
+  "codeOrSource": "lib/src/commands/install_command.dart; lib/src/workflows/validate_flutter_version.workflow.dart",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2023-12-01T15:38:16Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-09-05T08:44:46Z",
+    "lastDiscussionAt": "2024-09-05T08:44:46Z"
+  }
 }

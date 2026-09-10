@@ -1,0 +1,36 @@
+{
+  "number": 1009,
+  "title": "Custom fork issues",
+  "triagedAt": "2026-03-03",
+  "status": "needs_info",
+  "artifact": "../artifacts/issue-1009.md",
+  "url": "https://github.com/leoafarias/fvm/issues/1009",
+  "notes": "A custom patch tag reports 0.0.0-unknown, but no minimal public fork/metadata comparison proves FVM is responsible. Current fallback improvements do not prove this symptom fixed.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "support_or_unverified_bug",
+  "reviewCategory": "needs_info",
+  "evidenceLevel": "unverified_report",
+  "evidence": "A custom patch tag reports 0.0.0-unknown, but no minimal public fork/metadata comparison proves FVM is responsible. Current fallback improvements do not prove this symptom fixed.",
+  "codeOrSource": "lib/src/models/cache_flutter_version_model.dart; issue #1009 body/comments",
+  "nextAction": "Await a minimal accessible fork/ref and direct-Flutter-versus-FVM metadata comparison.",
+  "githubTriageLabel": "need info",
+  "ageContext": {
+    "createdAt": "2026-01-02T20:46:57Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-06-10T13:59:04Z",
+    "lastDiscussionAt": "2026-02-11T10:48:58Z"
+  },
+  "previousPriority": "p3-low",
+  "githubFollowup": {
+    "action": "needs-info",
+    "postedAt": "2026-09-08T22:10:47Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1009#issuecomment-5592554039",
+    "originalReportPreserved": true
+  },
+  "informationRequest": {
+    "postedAt": "2026-09-08T22:10:47Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1009#issuecomment-5592554039",
+    "closureDeadline": null,
+    "note": "No closure deadline was set in this request."
+  }
+}

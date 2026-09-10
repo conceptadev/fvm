@@ -6,4 +6,26 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-751.md",
   "url": "https://github.com/leoafarias/fvm/issues/751",
-  "notes": "Explore semver constraint parsing for version ranges."}
+  "notes": "Keep P3: semver-range input remains distinct from exact releases/channels; no complete range resolver established.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P3: semver-range input remains distinct from exact releases/channels; no complete range resolver established.",
+  "codeOrSource": "lib/src/workflows/validate_flutter_version.workflow.dart; lib/src/models/flutter_version_model.dart",
+  "nextAction": "Resolve the exact-install policy with the linked range, partial-version, pubspec and Dart-constraint requirements; no implementation commitment.",
+  "executionPlan": "../../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-07-10T17:48:31Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-07-30T21:14:22Z",
+    "lastDiscussionAt": null
+  },
+  "githubFollowup": {
+    "action": "related-scope",
+    "postedAt": "2026-09-08T22:10:37Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/751#issuecomment-5592552450",
+    "originalReportPreserved": true
+  }
+}

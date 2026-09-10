@@ -1,0 +1,13 @@
+{
+  "number": 1064,
+  "title": "[BUG] Docs: custom install dir variable set incorrectly",
+  "triagedAt": "2026-08-23",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-1064.md",
+  "url": "https://github.com/leoafarias/fvm/issues/1064",
+  "notes": "Already closed on GitHub: #1070 merged and installation docs corrected the environment assignment to the bash side of the pipe.",
+  "closedAt": "2026-09-04",
+  "stateReason": "completed",
+  "reviewedAt": "2026-09-08"
+}

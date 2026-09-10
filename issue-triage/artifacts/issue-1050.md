@@ -118,3 +118,28 @@ FVM does not publish Winget manifests, so Windows cannot automatically choose th
 ---
 **Validated by**: Code Agent
 **Date**: 2026-07-23
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: distribute native Windows ARM64 binaries through architecture-aware package managers; release archives alone are insufficient.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Keep P2: distribute native Windows ARM64 binaries through architecture-aware package managers; release archives alone are insufficient.
+- **Source**: tool/release_tool/tool/grind.dart; issue #1050 packaging follow-up (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2026-07-18; postdates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+
+## 2026-09-08 issue cleanup completed
+
+Linked #826 and #1058 while retaining ARM64 package-manager delivery as this issue's scope. No packaging issue was closed or delivery claimed.
+
+[Posted maintainer reply](https://github.com/leoafarias/fvm/issues/1050#issuecomment-5592553080). Original issue body and title were verified unchanged. Details: [cleanup audit](issue-cleanup-2026-09-08.md).

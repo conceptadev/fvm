@@ -5,6 +5,20 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-724.md",
   "url": "https://github.com/leoafarias/fvm/issues/724",
-  "notes": "Still active: recent reports show Android Studio/Flutter plugins resolving or persisting physical SDK paths instead of the project symlink. Coordinate reproduction and solution scope with #767 and #600.",
-  "priority": "p2-medium"
+  "notes": "Doctor reads IDE metadata, while actual SDK selection is controlled by the plugin; November 2025 follow-up reports continued branch-switch mismatches.",
+  "priority": "p2-medium",
+  "reviewedAt": "2026-09-08",
+  "issueType": "compatibility",
+  "reviewCategory": "upstream",
+  "evidenceLevel": "reported_compatibility",
+  "evidence": "Doctor reads IDE metadata, while actual SDK selection is controlled by the plugin; November 2025 follow-up reports continued branch-switch mismatches.",
+  "codeOrSource": "docs/pages/documentation/guides/android-studio.mdx; issue #724 comments",
+  "nextAction": "Compare doctor metadata to actual IDE SDK with a minimal two-branch case; coordinate with #767.",
+  "githubTriageLabel": "triage:upstream",
+  "ageContext": {
+    "createdAt": "2024-05-18T08:37:43Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2025-11-12T15:18:33Z",
+    "lastDiscussionAt": "2025-11-12T15:18:33Z"
+  }
 }

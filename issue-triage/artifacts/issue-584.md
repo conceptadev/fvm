@@ -79,3 +79,19 @@ $ sed -n '120,150p' lib/src/utils/context.dart
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes earlier recommendations above.
+
+- **Decision**: close as completed; Custom Flutter remotes and the requested FLUTTER_GIT_URL fallback are implemented and documented.
+- **Evidence**: `lib/src/services/app_config_service.dart:_loadEnvironment` seeds flutterUrl from FLUTTER_GIT_URL, then applies FVM_FLUTTER_URL. `ConfigOptions.flutterUrl` exposes --flutter-url. Current custom-version documentation covers the config option, environment variable and project override.
+- **Validation**: live issue body/comments, current origin/main at a6d93976d443082d73d4718750713e6248de6b84, and relevant source/docs inspected. No product changes or full runtime reproduction.
+- **Follow-up plan**: No implementation needed for the original request. Keep distinct unresolved behavior separately tracked.
+- **GitHub explanation**:
+
+This is now supported in FVM 4.3.1. You can use `fvm config --flutter-url <remote>` or `FVM_FLUTTER_URL`; FVM also uses `FLUTTER_GIT_URL` as the fallback you requested when the FVM-specific environment variable is absent.
+
+The [custom Flutter version guide](https://fvm.app/documentation/advanced/custom-version) documents the remote configuration. I checked the current environment-loading code as well. Closing as completed; thanks for identifying the original documentation gap.
+
+**Verified closure**: 2026-09-08T15:03:22Z, GitHub reason `completed`. [Closure comment](https://github.com/leoafarias/fvm/issues/584#issuecomment-5587259131).

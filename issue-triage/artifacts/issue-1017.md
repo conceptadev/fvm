@@ -81,3 +81,28 @@ Available evidence points to environment/path configuration, not a confirmed fai
 ---
 **Validated by**: Code Agent  
 **Date**: 2026-03-03
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep needs-info: explicitly reported on 4.0.5, so outside the legacy retirement cutoff. fvm flutter works while bare flutter/IDE PATH differs; reproduce in a fresh VS Code terminal and inspect where flutter.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: support_or_unverified_bug / needs_info; GitHub label `need info`.
+- **Evidence level**: unverified_report. Reported on FVM 4.0.5: fvm flutter works but bare flutter/VS Code PATH differs. This is not a validated install/use failure and is not pre-4-only.
+- **Source**: issue #1017 body/comments; https://dartcode.org/docs/settings/ (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Compare fvm flutter --version, bare flutter --version and where flutter in a fresh VS Code terminal; include extension/privilege settings.
+- **Age**: opened 2026-03-02; postdates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+
+## 2026-09-08 issue cleanup completed
+
+Acknowledged the existing successful FVM invocation and separate PATH SDK. Requested fresh terminal resolution, versions, doctor/settings and the action opening an elevated terminal. Remains needs-info; no closure deadline.
+
+[Posted maintainer reply](https://github.com/leoafarias/fvm/issues/1017#issuecomment-5592554276). Original issue body and title were verified unchanged. Details: [cleanup audit](issue-cleanup-2026-09-08.md).

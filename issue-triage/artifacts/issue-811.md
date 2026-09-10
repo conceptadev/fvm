@@ -61,3 +61,19 @@ The release automation never produces or publishes a Nix derivation. Without an 
 ## Notes for Follow-up
 - Coordinate with existing release automation maintainers to avoid duplication with Homebrew/Chocolatey steps.
 - Once upstreamed, document how to pin FVM via flakes for reproducible builds.
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes earlier recommendations above.
+
+- **Decision**: close as completed; FVM is already packaged in nixpkgs; current upstream derivation targets 4.3.1.
+- **Evidence**: Live GitHub API read of `NixOS/nixpkgs/pkgs/by-name/fv/fvm/package.nix` returned pname=fvm, version=4.3.1, buildDartApplication and mainProgram=fvm. Thread already reported availability in August 2025. No Nix runtime validation performed.
+- **Validation**: live issue body/comments, current origin/main at a6d93976d443082d73d4718750713e6248de6b84, and relevant source/docs inspected. No product changes or full runtime reproduction.
+- **Follow-up plan**: No implementation needed for the original request. Keep distinct unresolved behavior separately tracked.
+- **GitHub explanation**:
+
+This packaging request is already fulfilled in nixpkgs. I checked the current [FVM derivation](https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/fv/fvm/package.nix), which now targets FVM 4.3.1; the August 2025 comment also noted its availability.
+
+Closing as completed. Package versions depend on your selected nixpkgs revision/channel. This confirms the package exists, not that every downloaded Flutter SDK works without additional NixOS configuration—please report any concrete runtime problem separately.
+
+**Verified closure**: 2026-09-08T15:03:39Z, GitHub reason `completed`. [Closure comment](https://github.com/leoafarias/fvm/issues/811#issuecomment-5587262909).

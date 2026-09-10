@@ -199,6 +199,14 @@ and the expensive work provably cannot change the outcome at that call site.
   4.1.0 work; the surviving path is the separate `ensureBareCacheIfPresent` call, so the fix
   is not a revert of that change.
 
+## 2026-08-23 Closure Update
+- GitHub closed #1061 as completed on 2026-08-22 when PR #1066 merged.
+- Shipped in FVM **4.1.5** (`perf: skip git-cache maintenance when running Flutter or Dart through an already-installed SDK (#1066)`), now on `origin/main` at **4.2.0**.
+- On `origin/main`, `RunConfiguredFlutterWorkflow` calls `EnsureCacheWorkflow` with `maintainGitCacheOnHit: false` for both the project pin and the global fallback. On a cache hit the workflow no longer calls `ensureBareCacheIfPresent()`, so `git fsck --connectivity-only` is not on the `fvm flutter` / `fvm dart` hot path.
+- Cache misses, installs, migrations, and repairs still prepare and validate the git cache. That matches the PR's stated safety boundary.
+- Archived to `closed/`. #688 is now the only open P1.
+
 ---
 **Validated by**: Code Agent
 **Date**: 2026-08-19
+**Closed in triage**: 2026-08-23

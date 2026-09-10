@@ -29,3 +29,21 @@ Add regression tests for typos with and without top-level flags, ensuring valid 
 ## Recommendation
 - Priority: **P3 - Low**
 - Suggested Folder: `validated/p3-low/`
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P3: typo/unknown-command handling is not shown fixed by the release; retain until the global --version interaction is reproduced and tested.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: bug / confirmed; GitHub label `triage:confirmed`.
+- **Evidence level**: reproduced_4.3.1. Published macOS ARM64 4.3.1: fluter --version prints 4.3.1 with exit 0; fluter alone correctly returns usage error 64.
+- **Source**: lib/src/runner.dart:300; published fvm-4.3.1-macos-arm64.tar.gz (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Validate unknown commands before honoring a global version flag, with regression tests.
+- **Age**: opened 2024-08-22; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

@@ -6,5 +6,26 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1016.md",
   "url": "https://github.com/leoafarias/fvm/issues/1016",
-  "notes": "Enhancement request for minor-line patch resolution (e.g., 3.38 -> latest 3.38.x); currently interpreted as git reference, not release constraint."
+  "notes": "Keep P3: cleanup patch recommendations are not an install-time partial-version resolver.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P3: cleanup patch recommendations are not an install-time partial-version resolver.",
+  "codeOrSource": "lib/src/commands/install_command.dart; lib/src/commands/cleanup_command.dart",
+  "nextAction": "Retain minor-only latest-patch installation and fvm list patch indicators while the shared #751/#421 policy discussion remains unresolved.",
+  "executionPlan": "../../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-02-19T20:34:55Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-02-19T20:34:55Z",
+    "lastDiscussionAt": null
+  },
+  "githubFollowup": {
+    "action": "related-scope",
+    "postedAt": "2026-09-08T22:10:38Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1016#issuecomment-5592552662",
+    "originalReportPreserved": true
+  }
 }

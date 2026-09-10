@@ -1,0 +1,39 @@
+{
+  "number": 607,
+  "title": "Support flatpak or snaps on Linux.",
+  "triagedAt": "2025-10-31",
+  "priority": "p3-low",
+  "status": "closed",
+  "artifact": "../artifacts/issue-607.md",
+  "url": "https://github.com/leoafarias/fvm/issues/607",
+  "notes": "Closed as not planned after the maintainer approved declining Snap/Flatpak maintenance. The install-script alternative is not evidence that Snap/Flatpak support shipped.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "not_planned",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Optional Snap/Flatpak packaging backlog. The official installer addresses the reporter's underlying no-Homebrew need, but no supported Snap/Flatpak FVM distribution was established here.",
+  "codeOrSource": "scripts/install.sh; canonical installation guide; current Snap/Flathub searches did not establish an FVM package",
+  "nextAction": "No implementation is scheduled. Revisit only with a new maintainer scope decision.",
+  "executionPlan": "../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "ageContext": {
+    "createdAt": "2024-02-13T02:55:48Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-02-28T22:56:49Z",
+    "lastDiscussionAt": "2024-02-28T22:56:48Z"
+  },
+  "previousReviewCategory": "backlog",
+  "previousGithubTriageLabel": "triage:backlog",
+  "githubLabels": [
+    "enhancement"
+  ],
+  "closedAt": "2026-09-08T23:04:12Z",
+  "stateReason": "not_planned",
+  "closureKind": "declined_scope",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/607#issuecomment-5593074742",
+  "githubFollowup": {
+    "action": "not-planned-closure",
+    "postedAt": "2026-09-08T23:04:11Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/607#issuecomment-5593074742",
+    "originalReportPreserved": true
+  }
+}

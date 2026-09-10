@@ -88,3 +88,25 @@ String prettyJson(Map<String, dynamic> json) {
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: UpdateVsCodeSettingsWorkflow decodes JSONC and rewrites prettyJson, losing comments and original formatting.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: bug / confirmed; GitHub label `triage:confirmed`.
+- **Evidence level**: code_inspection. VS Code JSONC is decoded then serialized with prettyJson; comments/formatting cannot survive that round trip.
+- **Source**: lib/src/workflows/update_vscode_settings.workflow.dart:164,189 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Add a comment-preserving edit and tests for tabs, comments and unrelated settings.
+- **Age**: opened 2024-02-20; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+## 2026-09-08 housekeeping follow-up
+
+Removed good first issue; comment-preserving JSONC editing has nontrivial parsing/format-preservation risks. Bug, triage:confirmed and help wanted remain. No category or priority change. See [housekeeping recommendations](housekeeping-plan-2026-09-08.md).

@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-702.md",
   "url": "https://github.com/leoafarias/fvm/issues/702",
-  "notes": "Workspace-level dart.flutterSdkPath overrides folder-specific settings. Skip writing it when multi-root, rely on per-folder configs, and update docs."
+  "notes": "Multi-SDK VS Code workspace support is an IDE-integration feature request, not a proven FVM setting-precedence defect. Verify Dart-Code capability before implementing.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Multi-SDK VS Code workspace support is an IDE-integration feature request, not a proven FVM setting-precedence defect. Verify Dart-Code capability before implementing.",
+  "codeOrSource": "lib/src/workflows/update_vscode_settings.workflow.dart:230; https://dartcode.org/docs/sdk-locating/",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-03-26T11:03:22Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-05-10T06:54:25Z",
+    "lastDiscussionAt": "2024-05-10T06:53:54Z"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "number": 811,
+  "title": "[Feature Request] Nix package",
+  "triagedAt": "2025-10-30",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-811.md",
+  "url": "https://github.com/leoafarias/fvm/issues/811",
+  "notes": "FVM is already packaged in nixpkgs; current upstream derivation targets 4.3.1.",
+  "closedAt": "2026-09-08",
+  "stateReason": "completed",
+  "reviewedAt": "2026-09-08",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/811#issuecomment-5587262909"
+}

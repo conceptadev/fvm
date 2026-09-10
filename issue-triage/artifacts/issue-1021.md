@@ -73,3 +73,11 @@ PR #1022 was open and mergeable during the 2026-06-10 sync.
 ---
 **Validated by**: Code Agent
 **Date**: 2026-06-10
+
+## 2026-09-08 reconciliation — FVM 4.3.1
+
+This dated review supersedes the earlier open-PR recommendation.
+
+Already closed on GitHub: #1022 shipped in 4.3.1 with pub_updater >=0.4.0 <0.6.0, preserving Dart >=3.6.0.
+
+Verified via live GitHub API: closed 2026-09-04T18:46:54Z, reason `completed`. Current origin/main changelog/source and prior release verification agree. No new closure comment was posted; this is local reconciliation only. No further implementation is needed for this issue.

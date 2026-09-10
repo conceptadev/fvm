@@ -6,6 +6,29 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1050.md",
   "url": "https://github.com/conceptadev/fvm/issues/1050",
-  "related_issues": [826, 1047],
-  "notes": "Native Windows ARM64 archives are already published and smoke-tested; remaining work is architecture-aware Winget/Chocolatey delivery."
+  "related_issues": [
+    826,
+    1047
+  ],
+  "notes": "Keep P2: distribute native Windows ARM64 binaries through architecture-aware package managers; release archives alone are insufficient.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: distribute native Windows ARM64 binaries through architecture-aware package managers; release archives alone are insufficient.",
+  "codeOrSource": "tool/release_tool/tool/grind.dart; issue #1050 packaging follow-up",
+  "nextAction": "Evaluate ARM64 package-manager delivery with links to #826 and #1058; verify each separate deliverable before closure.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-07-18T21:34:08Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-07-18T21:34:08Z",
+    "lastDiscussionAt": null
+  },
+  "githubFollowup": {
+    "action": "related-scope",
+    "postedAt": "2026-09-08T22:10:41Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1050#issuecomment-5592553080",
+    "originalReportPreserved": true
+  }
 }

@@ -76,3 +76,19 @@ Android Studio users rely on `.fvm/flutter_sdk`, but the docs only list a terse 
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes earlier recommendations above.
+
+- **Decision**: close as completed; Android Studio setup documentation shipped in #1056; automatic IDE switching remains tracked in #724/#767.
+- **Evidence**: PR #1056 merged; `docs/pages/documentation/guides/android-studio.mdx` covers setup, actual IDE verification, troubleshooting and symlink limitations. Live canonical page returned HTTP 200 with the SDK-path/symlink content on 2026-09-08.
+- **Validation**: live issue body/comments, current origin/main at a6d93976d443082d73d4718750713e6248de6b84, and relevant source/docs inspected. No product changes or full runtime reproduction.
+- **Follow-up plan**: No implementation needed for the original request. Keep distinct unresolved behavior separately tracked.
+- **GitHub explanation**:
+
+The documentation request is now addressed by #1056 and the published [Android Studio guide](https://fvm.app/documentation/guides/android-studio). It covers `.fvm/flutter_sdk`, setup and verification, and the limitation where the Flutter plugin resolves a symlink to its physical SDK path.
+
+Closing the documentation request as completed. This does **not** mean automatic IDE switching or opt-in IDE hooks are implemented: the remaining compatibility work stays open in #767 and #724, including the concerns raised later in this thread.
+
+**Verified closure**: 2026-09-08T15:03:25Z, GitHub reason `completed`. [Closure comment](https://github.com/leoafarias/fvm/issues/600#issuecomment-5587259783).

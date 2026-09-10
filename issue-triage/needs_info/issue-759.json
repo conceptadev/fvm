@@ -5,4 +5,36 @@
   "status": "needs_info",
   "artifact": "../artifacts/issue-759.md",
   "url": "https://github.com/leoafarias/fvm/issues/759",
-  "notes": "Need VSCode settings and error output."}
+  "notes": "CLI works but VS Code launch uses a different SDK; no settings/launch logs establish whether FVM or IDE configuration causes it. Retriaged as a support question, not a request to silently change the global SDK.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "support_or_unverified_bug",
+  "reviewCategory": "needs_info",
+  "evidenceLevel": "unverified_report",
+  "evidence": "CLI works but VS Code launch uses a different SDK; no settings/launch logs establish whether FVM or IDE configuration causes it. Retriaged as a support question, not a request to silently change the global SDK.",
+  "codeOrSource": "lib/src/workflows/update_vscode_settings.workflow.dart; https://dartcode.org/docs/sdk-locating/",
+  "nextAction": "Await current diagnostics through September 22, 2026. On or after September 23, review new replies before considering a not-planned closure; do not mark fixed without evidence.",
+  "githubTriageLabel": "need info",
+  "ageContext": {
+    "createdAt": "2024-08-07T17:27:35Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-08-07T17:27:35Z",
+    "lastDiscussionAt": null
+  },
+  "githubFollowup": {
+    "action": "needs-info",
+    "postedAt": "2026-09-08T22:10:45Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/759#issuecomment-5592553676",
+    "originalReportPreserved": true
+  },
+  "informationRequest": {
+    "postedAt": "2026-09-08T22:10:45Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/759#issuecomment-5592553676",
+    "closureDeadline": "2026-09-22",
+    "note": "A follow-up added a maintainer-approved 14-day response window, through September 22. Review the latest replies after the deadline before closing as not planned if no current reproduction is available; reopen when diagnostics arrive. This applies only to #759 and #781, not the whole queue.",
+    "reviewAfter": "2026-09-23",
+    "deadlineTimeZone": "America/New_York",
+    "deadlineAnnouncedAt": "2026-09-08T23:04:19Z",
+    "deadlineCommentUrl": "https://github.com/leoafarias/fvm/issues/759#issuecomment-5593075976",
+    "automationScheduled": false
+  }
+}

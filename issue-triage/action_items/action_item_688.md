@@ -1,12 +1,29 @@
 # Action Item: Issue #688 - Archive Installs for Storage Mirrors
 
-**Priority**: P1 (the only current P1)
+**Priority**: cancelled (closed not planned)
 
-**Revalidated**: 2026-08-11 against FVM 4.1.2, fetched `origin/main`, and live PR #1013
+**Revalidated**: 2026-08-23 against FVM 4.2.0 and live GitHub
 
-**Issue**: https://github.com/conceptadev/fvm/issues/688
+**Issue**: https://github.com/leoafarias/fvm/issues/688
 
-**Implementation PR**: https://github.com/conceptadev/fvm/pull/1013
+**Implementation PR**: https://github.com/leoafarias/fvm/pull/1013 (closed unmerged 2026-08-19)
+
+## Outcome
+
+Cancelled. Maintainer closed #688 as **not planned** on 2026-08-23.
+
+FVM will keep Git-based SDK installs. Custom Git remotes remain supported via
+`fvm config --flutter-url`, `FVM_FLUTTER_URL`, and `FLUTTER_GIT_URL`. Archive
+downloads from `FLUTTER_STORAGE_BASE_URL` mirrors are out of scope.
+
+Do not reopen implementation work unless the maintainer explicitly revives it.
+
+## Historical Context
+
+The notes below describe the work that was explored in PR #1013 and are kept
+only as archive.
+
+---
 
 ## Outcome Required
 

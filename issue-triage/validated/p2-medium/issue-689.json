@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-689.md",
   "url": "https://github.com/leoafarias/fvm/issues/689",
-  "notes": "Rich table output lacks a plain/text mode. Add console style toggle (config + CLI flag), auto-fallback for non-TTY, and update docs/tests."
+  "notes": "Outstanding plain-text output is an enhancement. Preserve the historical bug label for the old third-party completion regression, but do not count that as a reproduced 4.3.1 bug. The old linked _fvm path now returns 404; that does not prove resolution.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Outstanding plain-text output is an enhancement. Preserve the historical bug label for the old third-party completion regression, but do not count that as a reproduced 4.3.1 bug. The old linked _fvm path now returns 404; that does not prove resolution.",
+  "codeOrSource": "lib/src/commands/list_command.dart; lib/src/commands/api_command.dart; issue comments",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-03-11T01:44:42Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-11-05T15:46:29Z",
+    "lastDiscussionAt": "2024-11-04T20:43:15Z"
+  }
 }

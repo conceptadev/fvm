@@ -1,0 +1,39 @@
+{
+  "number": 738,
+  "title": "[Feature Request] publish fvm DockerFile to github marketplace",
+  "triagedAt": "2025-10-30",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-738.md",
+  "url": "https://github.com/leoafarias/fvm/issues/738",
+  "notes": "Closed as not planned after the maintainer approved declining an official Codespaces/devcontainer template. Docker image delivery is a different scope; Docker ARM64 issue #762 and PR #1053 remain open.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "not_planned",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: a Codespaces/devcontainer template is distinct from publishing a Docker image; no implemented template established here.",
+  "codeOrSource": "Dockerfile; .github/workflows/deploy_docker.yml; no tracked devcontainer/marketplace template found",
+  "nextAction": "No implementation is scheduled. Revisit only with a new maintainer scope decision.",
+  "ageContext": {
+    "createdAt": "2024-06-10T05:14:48Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-06-10T05:14:48Z",
+    "lastDiscussionAt": null
+  },
+  "previousReviewCategory": "backlog",
+  "previousGithubTriageLabel": "triage:backlog",
+  "githubLabels": [
+    "enhancement",
+    "docker"
+  ],
+  "closedAt": "2026-09-08T23:04:18Z",
+  "stateReason": "not_planned",
+  "closureKind": "declined_scope",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/738#issuecomment-5593075538",
+  "githubFollowup": {
+    "action": "not-planned-closure",
+    "postedAt": "2026-09-08T23:04:16Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/738#issuecomment-5593075538",
+    "originalReportPreserved": true
+  }
+}

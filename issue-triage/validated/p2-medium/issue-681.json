@@ -6,5 +6,26 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-681.md",
   "url": "https://github.com/leoafarias/fvm/issues/681",
-  "notes": "Stop deleting .fvm/versions on each switch; preserve per-version symlinks so branch checkouts keep working, add cleanup tooling, and update docs."
+  "notes": "Keep P2: UpdateProjectReferencesWorkflow still deletes and recreates .fvm/versions; branch switching can lose versioned links.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: UpdateProjectReferencesWorkflow still deletes and recreates .fvm/versions; branch switching can lose versioned links.",
+  "codeOrSource": "lib/src/workflows/update_project_references.workflow.dart:68",
+  "nextAction": "Continue SDK-link/branch-checkout design in #681 with #764's requirements preserved; keep related IDE issues separate.",
+  "executionPlan": "../../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-03-04T22:22:14Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-03-06T20:41:00Z",
+    "lastDiscussionAt": "2024-03-06T20:40:24Z"
+  },
+  "githubFollowup": {
+    "action": "consolidation-lead",
+    "postedAt": "2026-09-08T22:09:25Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/681#issuecomment-5592539768",
+    "originalReportPreserved": true
+  }
 }

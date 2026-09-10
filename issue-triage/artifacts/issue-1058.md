@@ -146,3 +146,28 @@ the pinned `dart-sdk`), so it does not block FVM usage itself.
 ---
 **Validated by**: Code Agent
 **Date**: 2026-08-19
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: Chocolatey's exact Dart dependency is unrelated to the pub_updater fix in #1021; native Windows packaging remains the proposed remedy.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: bug / confirmed; GitHub label `triage:confirmed`.
+- **Evidence level**: package_source_inspection. Release tooling locks cli_pkg 2.14.0; its Chocolatey generator creates an exact dart-sdk dependency because snapshots are version-specific. #1021 did not change this packaging path.
+- **Source**: tool/release_tool/pubspec.lock; cli_pkg-2.14.0/lib/src/chocolatey.dart:166-172 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Use native/architecture-aware packaging with #1050; do not merely relax the snapshot runtime constraint.
+- **Age**: opened 2026-08-17; postdates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+
+## 2026-09-08 issue cleanup completed
+
+Explained the exact Chocolatey dependency shown in the supplied log, without asserting Dart-source incompatibility. Linked #1050 and retained the defect pending a verified package fix.
+
+[Posted maintainer reply](https://github.com/leoafarias/fvm/issues/1058#issuecomment-5592553483). Original issue body and title were verified unchanged. Details: [cleanup audit](issue-cleanup-2026-09-08.md).

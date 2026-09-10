@@ -73,3 +73,27 @@ Leaving the issue open under documentation until that change lands—thanks agai
 ---
 **Validated by**: Code Agent  
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: running-flutter.mdx still emits ${@:1} without a shebang. Plan safe POSIX wrappers using quoted argument forwarding, preserve existing executables, and verify paths/permissions.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: bug / confirmed; GitHub label `triage:confirmed`.
+- **Evidence level**: shell_reproduction_and_source. Current docs emit ${@:1} without a shebang. dash reproduction exits 2 with Bad substitution; macOS /bin/sh accepts it, so this is shell-dependent.
+- **Source**: docs/pages/documentation/guides/running-flutter.mdx:69,76 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Use safe POSIX wrappers with quoted arguments, executable permissions and non-destructive installation guidance.
+- **Age**: opened 2024-09-16; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+## 2026-09-08 low-risk execution-plan follow-up
+
+Ready for a documentation-only PR. The lowest-risk scope now supersedes the earlier replacement-wrapper suggestion: withdraw the unsafe process-wide file-creation/deletion recipe, recommend explicit proxy commands and existing interactive aliases, and explain safe recovery without deleting unrelated executables. Current PATH fallback adds a source-supported recursion risk beyond the dash syntax error. Do not implement a wrapper installer or claim #787 delivered; close this docs report only after the corrected guide is published.
+
+Details and verification gates: [low-risk PR and consolidation plan](low-risk-pr-plan-2026-09-08.md). Existing priority/category are unchanged. No GitHub mutation or product fix was made in this planning pass.

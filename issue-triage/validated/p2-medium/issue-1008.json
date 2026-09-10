@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1008.md",
   "url": "https://github.com/leoafarias/fvm/issues/1008",
-  "notes": "Melos auto-update flow only handles melos.yaml sdkPath, not pubspec-based melos.sdkPath configuration used by some workspaces."
+  "notes": "Melos integration only locates melos.yaml and updates its root sdkPath; the report uses pubspec.yaml/melos/sdkPath. Automatic environment constraint updates are a separate enhancement.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "code_inspection",
+  "evidence": "Melos integration only locates melos.yaml and updates its root sdkPath; the report uses pubspec.yaml/melos/sdkPath. Automatic environment constraint updates are a separate enhancement.",
+  "codeOrSource": "lib/src/workflows/update_melos_settings.workflow.dart:24,29,75",
+  "nextAction": "Support pubspec-based Melos config with preserved YAML and explicit tests; separate optional constraint updates.",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2025-12-31T03:45:57Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-06-25T16:37:22Z",
+    "lastDiscussionAt": "2026-06-25T16:37:22Z"
+  }
 }

@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1024.md",
   "url": "https://github.com/leoafarias/fvm/issues/1024",
-  "notes": "Valid Windows no-admin usability/security request; current privilegedAccess=false option is a partial workaround but not automatic or prominent."
+  "notes": "Keep P2: privilegedAccess:false is a manual workaround; automatic/clear Windows no-admin behavior remains requested.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: privilegedAccess:false is a manual workaround; automatic/clear Windows no-admin behavior remains requested.",
+  "codeOrSource": "lib/src/utils/context.dart:privilegedAccess; lib/src/workflows/update_project_references.workflow.dart",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-03-13T13:32:16Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-03-13T13:32:40Z",
+    "lastDiscussionAt": null
+  }
 }

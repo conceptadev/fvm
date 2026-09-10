@@ -51,3 +51,21 @@ No getFlutterSdkCommand or getDartSdkCommand setting is emitted.
 
 ## Notes for Follow-up
 - Verify new command works on Windows/macOS/Linux and respects `privilegedAccess` logic.
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: VS Code command-based SDK discovery and a path command remain separate from writing a static dart.flutterSdkPath.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Keep P2: VS Code command-based SDK discovery and a path command remain separate from writing a static dart.flutterSdkPath.
+- **Source**: lib/src/runner.dart command registration; lib/src/workflows/update_vscode_settings.workflow.dart (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2025-02-13; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

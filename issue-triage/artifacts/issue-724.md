@@ -79,3 +79,21 @@ We’ve called this out in the workspace workflow docs and `fvm doctor` now link
 ---
 **Validated by**: Code Agent  
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: doctor warning and actual Android Studio SDK selection must be distinguished. Current guide is available, but a November 2025 follow-up still reports branch-switch mismatches; coordinate with #767.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: compatibility / upstream; GitHub label `triage:upstream`.
+- **Evidence level**: reported_compatibility. Doctor reads IDE metadata, while actual SDK selection is controlled by the plugin; November 2025 follow-up reports continued branch-switch mismatches.
+- **Source**: docs/pages/documentation/guides/android-studio.mdx; issue #724 comments (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Compare doctor metadata to actual IDE SDK with a minimal two-branch case; coordinate with #767.
+- **Age**: opened 2024-05-18; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

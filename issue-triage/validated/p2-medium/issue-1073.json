@@ -1,0 +1,24 @@
+{
+  "number": 1073,
+  "title": "[Feature Request] Show progress on installing a new version",
+  "triagedAt": "2026-09-08",
+  "reviewedAt": "2026-09-08",
+  "priority": "p2-medium",
+  "status": "validated",
+  "artifact": "../../artifacts/issue-1073.md",
+  "url": "https://github.com/leoafarias/fvm/issues/1073",
+  "notes": "Keep P2 (new): initial bare git-cache fetch buffers output without explicit progress; add visible phases/progress while preserving non-TTY behavior.",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2 (new): initial bare git-cache fetch buffers output without explicit progress; add visible phases/progress while preserving non-TTY behavior.",
+  "codeOrSource": "lib/src/services/git_service.dart:250,469; lib/src/services/process_service.dart:91",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-09-05T18:47:13Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-09-05T18:47:29Z",
+    "lastDiscussionAt": null
+  }
+}

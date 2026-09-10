@@ -1,0 +1,14 @@
+{
+  "number": 578,
+  "title": "[Feature Request] Add MacPorts as an installation method",
+  "triagedAt": "2025-10-31",
+  "priority": "p3-low",
+  "status": "closed",
+  "artifact": "../artifacts/issue-578.md",
+  "url": "https://github.com/leoafarias/fvm/issues/578",
+  "notes": "MacPorts package already exists. Live upstream devel/fvm/Portfile targets 4.3.1. Prior keep-open decision lacked this external package check and is superseded.",
+  "reviewedAt": "2026-09-08",
+  "closedAt": "2026-09-08",
+  "stateReason": "completed",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/578#issuecomment-5587516716"
+}

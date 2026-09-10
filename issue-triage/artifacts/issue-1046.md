@@ -108,3 +108,11 @@ inheritStdio alone was enough for #801’s original “Ctrl+C doesn’t work” 
 - Reporter assets: video of wedged terminal attached on GitHub.
 - Priority escalate to P1 only if confirmed across multiple shells or default macOS Terminal fish setups at scale.
 - **2026-08-11 priority update:** keep P2, but treat PR #1054 as the best near-term actionable bug fix after the sole P1 (#688).
+
+## 2026-09-08 reconciliation — FVM 4.3.1
+
+This dated review supersedes the earlier open-PR recommendation.
+
+Already closed on GitHub: #1054 shipped SIGINT child-cleanup handling in 4.3.1.
+
+Verified via live GitHub API: closed 2026-09-04T18:47:15Z, reason `completed`. Current origin/main changelog/source and prior release verification agree. No new closure comment was posted; this is local reconciliation only. No further implementation is needed for this issue.

@@ -5,5 +5,31 @@
   "status": "needs_info",
   "artifact": "../artifacts/issue-1017.md",
   "url": "https://github.com/leoafarias/fvm/issues/1017",
-  "notes": "Current diagnostics point to PATH/IDE configuration mismatch; need minimal reproduction with fresh terminal and command-path evidence."
+  "notes": "Reported on FVM 4.0.5: fvm flutter works but bare flutter/VS Code PATH differs. This is not a validated install/use failure and is not pre-4-only.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "support_or_unverified_bug",
+  "reviewCategory": "needs_info",
+  "evidenceLevel": "unverified_report",
+  "evidence": "Reported on FVM 4.0.5: fvm flutter works but bare flutter/VS Code PATH differs. This is not a validated install/use failure and is not pre-4-only.",
+  "codeOrSource": "issue #1017 body/comments; https://dartcode.org/docs/settings/",
+  "nextAction": "Await fresh terminal command resolution and editor/privilege diagnostics distinguishing FVM from bare Flutter.",
+  "githubTriageLabel": "need info",
+  "ageContext": {
+    "createdAt": "2026-03-02T08:14:22Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-03-06T07:15:52Z",
+    "lastDiscussionAt": "2026-03-06T07:15:52Z"
+  },
+  "githubFollowup": {
+    "action": "needs-info",
+    "postedAt": "2026-09-08T22:10:48Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1017#issuecomment-5592554276",
+    "originalReportPreserved": true
+  },
+  "informationRequest": {
+    "postedAt": "2026-09-08T22:10:48Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1017#issuecomment-5592554276",
+    "closureDeadline": null,
+    "note": "No closure deadline was set in this request."
+  }
 }

@@ -41,3 +41,21 @@ FVM has no workflow that manages IntelliJ .idea/libraries/Dart_SDK.xml.
 ## Recommendation
 - Priority: **P2 - Medium**
 - Reason: repeated current confirmations establish a real IDE integration gap; more reproduction detail is needed for implementation, not for validity.
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: Android Studio resolves symlinks to physical SDK paths; May/June 2026 confirmations make this current. New documentation does not implement automatic switching.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: compatibility / upstream; GitHub label `triage:upstream`.
+- **Evidence level**: reported_compatibility. May/June 2026 reports confirm physical/cross-project SDK-path substitution in Android Studio. The current guide acknowledges symlink limitations; no local IDE reproduction was performed.
+- **Source**: docs/pages/documentation/guides/android-studio.mdx; issue #767 comments (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Reproduce with stated IDE/plugin versions and separate upstream path normalization from FVM reference updates.
+- **Age**: opened 2024-08-26; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

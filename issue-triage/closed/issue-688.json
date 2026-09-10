@@ -1,0 +1,13 @@
+{
+  "number": 688,
+  "title": "Support a custom FLUTTER_STORAGE_BASE_URL as the source for Flutter package downloads",
+  "triagedAt": "2025-10-31",
+  "priority": "p1-high",
+  "status": "closed",
+  "closedAt": "2026-08-23",
+  "stateReason": "not_planned",
+  "artifact": "../artifacts/issue-688.md",
+  "url": "https://github.com/leoafarias/fvm/issues/688",
+  "closing_pr": 1013,
+  "notes": "Closed as not planned. FVM installs through Git by design. Custom Git remotes are already supported via fvm config --flutter-url, FVM_FLUTTER_URL, and FLUTTER_GIT_URL. Archive-based installs from FLUTTER_STORAGE_BASE_URL mirrors are out of scope. PR #1013 explored that work and was closed unmerged on 2026-08-19."
+}

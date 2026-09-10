@@ -108,14 +108,21 @@ FVM’s cache strategy is Git-centric. Even though the release metadata exposes 
 - [docs/pages/documentation/getting-started/configuration.mdx#L70](../../docs/pages/documentation/getting-started/configuration.mdx#L70) – Document new storage settings and strategies.
 
 ## Recommendation
-**Action**: validate-p1
+**Action**: closed-not-planned
 
-**Reason**: For enterprises behind restricted networks, FVM is unusable without archive installations. Supporting `FLUTTER_STORAGE_BASE_URL` is a high-impact enhancement that unblocks entire user segments.
+**Reason**: Maintainer decision on 2026-08-23. FVM will keep Git-based SDK installs. Custom Git remotes are already supported. Archive downloads from `FLUTTER_STORAGE_BASE_URL` are out of scope. PR #1013 was closed unmerged on 2026-08-19; the tracking issue remained open until this close.
 
 ## Notes
 - Coordinate with #821 (`getFlutterSdkCommand`) so IDE integrations understand archives vs. git installs.
 - Consider exposing a `fvm doctor` warning when `FLUTTER_STORAGE_BASE_URL` is set but the archive strategy is disabled.
 
+## 2026-08-23 Closure Update
+- GitHub issue closed as **not planned** (`2026-08-23T19:31:47Z`).
+- Closing comment: FVM installs through Git; override the remote with `fvm config --flutter-url`, `FVM_FLUTTER_URL`, or `FLUTTER_GIT_URL`. Archive installs will not be added. PR #1013 stays closed unmerged.
+- Original reporter (@oravecz, 2024-09-11) already said `FLUTTER_GIT_URL` was the approach they needed.
+- No remaining open P1 issues after this close.
+
 ---
 **Validated by**: Code Agent
 **Date**: 2026-07-18
+**Closed in triage**: 2026-08-23

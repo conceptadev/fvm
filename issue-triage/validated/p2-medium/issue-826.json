@@ -6,4 +6,29 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-826.md",
   "url": "https://github.com/leoafarias/fvm/issues/826",
-  "notes": "Add Winget manifests and release automation to mirror Windows binaries."}
+  "notes": "Keep P2: Winget manifests/release automation remain packaging work; native Windows archives alone do not fulfill it.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: Winget manifests/release automation remain packaging work; native Windows archives alone do not fulfill it.",
+  "codeOrSource": "Current winget-pkgs code search returned no FVM manifest; issue #1050",
+  "nextAction": "Retain general Winget delivery as a separate task linked to #1050; require verified installation and update behavior.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2025-02-25T03:15:52Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2026-01-01T16:35:43Z",
+    "lastDiscussionAt": "2026-01-01T16:35:43Z"
+  },
+  "labelAudit": {
+    "date": "2026-09-08",
+    "note": "Added windows label; Winget is Windows package distribution. Enhancement and triage:backlog remain."
+  },
+  "githubFollowup": {
+    "action": "related-scope",
+    "postedAt": "2026-09-08T22:10:42Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/826#issuecomment-5592553299",
+    "originalReportPreserved": true
+  }
+}

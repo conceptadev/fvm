@@ -1,0 +1,13 @@
+{
+  "number": 809,
+  "title": "[BUG]: cannot update to newer flutter version (sidekick related)",
+  "triagedAt": "2025-10-30",
+  "status": "closed",
+  "artifact": "../artifacts/issue-809.md",
+  "url": "https://github.com/leoafarias/fvm/issues/809",
+  "notes": "Retire the FVM 3.2.1 Sidekick follow-up; original tracking stays in sidekick#280, no reliable CLI reproduction.",
+  "closedAt": "2026-09-08",
+  "stateReason": "not_planned",
+  "reviewedAt": "2026-09-08",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/809#issuecomment-5587262156"
+}

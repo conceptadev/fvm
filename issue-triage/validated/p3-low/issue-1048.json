@@ -6,5 +6,20 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1048.md",
   "url": "https://github.com/conceptadev/fvm/issues/1048",
-  "notes": "Explicit updateVscodeSettings:false correctly skips writes but still emits WARN; remove warn for intentional opt-out."
+  "notes": "The explicit updateVscodeSettings:false branch still warns that users should remove the setting.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "code_inspection",
+  "evidence": "The explicit updateVscodeSettings:false branch still warns that users should remove the setting.",
+  "codeOrSource": "lib/src/workflows/update_vscode_settings.workflow.dart:271,280",
+  "nextAction": "PR 1: remove only the intentional VS Code opt-out warning; retain debug/return and unrelated warnings, test file preservation, and run the branch smoke test.",
+  "executionPlan": "../../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2026-07-16T12:23:41Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-07-16T12:27:28Z",
+    "lastDiscussionAt": "2026-07-16T12:25:40Z"
+  }
 }

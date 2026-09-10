@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-968.md",
   "url": "https://github.com/leoafarias/fvm/issues/968",
-  "notes": "Setup success is reported before validating that the SDK finished setup (missing tools like unzip can leave a partial setup state)."
+  "notes": "FlutterService.setup uses run with throwOnError=false; SetupFlutterWorkflow ignores the returned exit code and logs success without rechecking isSetup. Existing test covers interruption, not ordinary nonzero exits.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "code_inspection",
+  "evidence": "FlutterService.setup uses run with throwOnError=false; SetupFlutterWorkflow ignores the returned exit code and logs success without rechecking isSetup. Existing test covers interruption, not ordinary nonzero exits.",
+  "codeOrSource": "lib/src/services/flutter_service.dart:506,540; lib/src/workflows/setup_flutter.workflow.dart; test/src/workflows/setup_flutter.workflow_test.dart",
+  "nextAction": "Add a nonzero-exit fake-service regression, propagate setup failure and verify post-setup state.",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2025-11-12T16:43:40Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2025-11-12T17:00:21Z",
+    "lastDiscussionAt": null
+  }
 }

@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-821.md",
   "url": "https://github.com/leoafarias/fvm/issues/821",
-  "notes": "Add fvm path command + configure dart.getFlutterSdkCommand / dart.getDartSdkCommand in VS Code workflow."}
+  "notes": "Keep P2: VS Code command-based SDK discovery and a path command remain separate from writing a static dart.flutterSdkPath.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: VS Code command-based SDK discovery and a path command remain separate from writing a static dart.flutterSdkPath.",
+  "codeOrSource": "lib/src/runner.dart command registration; lib/src/workflows/update_vscode_settings.workflow.dart",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2025-02-13T13:09:13Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2025-02-13T13:09:13Z",
+    "lastDiscussionAt": null
+  }
+}

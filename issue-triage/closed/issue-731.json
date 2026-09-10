@@ -1,0 +1,13 @@
+{
+  "number": 731,
+  "title": "The provided value cache.git is not the root of a git directory",
+  "triagedAt": "2025-10-30",
+  "status": "closed",
+  "artifact": "../artifacts/issue-731.md",
+  "url": "https://github.com/leoafarias/fvm/issues/731",
+  "notes": "Retire the legacy 3.1.5–3.1.7 cache support thread; current hook-environment protection exists, but the original screenshot-only failure is not proven fixed.",
+  "closedAt": "2026-09-08",
+  "stateReason": "not_planned",
+  "reviewedAt": "2026-09-08",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/731#issuecomment-5587260637"
+}

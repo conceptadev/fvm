@@ -1,0 +1,17 @@
+{
+  "number": 1046,
+  "title": "[BUG] FVM leaves fish terminal wedged in raw mode after Ctrl+C mid-command",
+  "triagedAt": "2026-07-18",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-1046.md",
+  "url": "https://github.com/conceptadev/fvm/issues/1046",
+  "related_issues": [
+    801,
+    1030
+  ],
+  "notes": "Already closed on GitHub: #1054 shipped SIGINT child-cleanup handling in 4.3.1.",
+  "closedAt": "2026-09-04",
+  "stateReason": "completed",
+  "reviewedAt": "2026-09-08"
+}

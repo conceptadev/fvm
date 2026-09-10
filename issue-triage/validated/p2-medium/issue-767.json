@@ -7,6 +7,23 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-767.md",
   "url": "https://github.com/conceptadev/fvm/issues/767",
-  "related_issues": [600, 724],
-  "notes": "Multiple current confirmations establish a real IntelliJ/Android Studio symlink-resolution compatibility gap; implementation still needs a controlled current-version reproduction."
+  "related_issues": [
+    600,
+    724
+  ],
+  "notes": "May/June 2026 reports confirm physical/cross-project SDK-path substitution in Android Studio. The current guide acknowledges symlink limitations; no local IDE reproduction was performed.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "compatibility",
+  "reviewCategory": "upstream",
+  "evidenceLevel": "reported_compatibility",
+  "evidence": "May/June 2026 reports confirm physical/cross-project SDK-path substitution in Android Studio. The current guide acknowledges symlink limitations; no local IDE reproduction was performed.",
+  "codeOrSource": "docs/pages/documentation/guides/android-studio.mdx; issue #767 comments",
+  "nextAction": "Reproduce with stated IDE/plugin versions and separate upstream path normalization from FVM reference updates.",
+  "githubTriageLabel": "triage:upstream",
+  "ageContext": {
+    "createdAt": "2024-08-26T12:26:17Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2026-06-24T08:42:11Z",
+    "lastDiscussionAt": "2026-06-24T08:42:11Z"
+  }
 }

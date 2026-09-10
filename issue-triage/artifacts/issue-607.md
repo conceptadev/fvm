@@ -1,5 +1,7 @@
 # Issue #607: Support flatpak or snaps on Linux.
 
+Current disposition — 2026-09-08: [closed as not planned](https://github.com/leoafarias/fvm/issues/607#issuecomment-5593074742) because the maintainer declined Snap/Flatpak maintenance; the install-script alternative does not mean those packages shipped. The historical proposals below are not scheduled. This is not a verified fix.
+
 ## Metadata
 - **Reporter**: @safield
 - **Created**: 2024-02-13
@@ -78,3 +80,27 @@ $ rg "flatpak" -n
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P3: the reporter accepted an install-script alternative, but Snap/Flatpak packaging itself is not implemented; do not call it completed.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Optional Snap/Flatpak packaging backlog. The official installer addresses the reporter's underlying no-Homebrew need, but no supported Snap/Flatpak FVM distribution was established here.
+- **Source**: scripts/install.sh; canonical installation guide; current Snap/Flathub searches did not establish an FVM package (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2024-02-13; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+## 2026-09-08 low-risk execution-plan follow-up
+
+The live discussion shows the reporter welcomed an install-script alternative, not confirmation of Snap/Flatpak delivery. Recommend a not-planned closure only after an explicit maintenance/scope decision; otherwise retain contributor-led backlog. Do not execute the historical packaging/telemetry plan as a quick win.
+
+Details and verification gates: [low-risk PR and consolidation plan](low-risk-pr-plan-2026-09-08.md). Existing priority/category are unchanged. No GitHub mutation or product fix was made in this planning pass.

@@ -1,0 +1,13 @@
+{
+  "number": 1059,
+  "title": "[BUG] FVM git-cache migration can destroy an unrelated repository",
+  "triagedAt": "2026-08-23",
+  "priority": "p1-high",
+  "status": "closed",
+  "closedAt": "2026-08-19",
+  "stateReason": "completed",
+  "artifact": "../artifacts/issue-1059.md",
+  "url": "https://github.com/leoafarias/fvm/issues/1059",
+  "closing_pr": 1060,
+  "notes": "Opened and closed on 2026-08-19, so it never sat in the open triage queue. Destructive git-cache migration against unrelated repos (ancestor discovery, gitfile redirect, inherited GIT_DIR from hooks/worktrees). Fixed by PR #1060 in FVM 4.1.4: classify only standalone caches FVM owns, and scrub repository-scoped git env vars when spawning git/flutter/dart."
+}

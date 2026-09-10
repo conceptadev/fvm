@@ -86,3 +86,34 @@ The project workflow treats `.fvm/versions` as a single-use scratch directory. D
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: UpdateProjectReferencesWorkflow still deletes and recreates .fvm/versions; branch switching can lose versioned links.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Keep P2: UpdateProjectReferencesWorkflow still deletes and recreates .fvm/versions; branch switching can lose versioned links.
+- **Source**: lib/src/workflows/update_project_references.workflow.dart:68 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2024-03-04; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+## 2026-09-08 low-risk execution-plan follow-up
+
+Proposed discussion lead for SDK-link consolidation, not an implementation approval. Full live threads show #764 adds relative/removable flutter_sdk and committed-file checkout requirements. First preserve these as explicit outcomes/design questions in #681 and add reciprocal links. Keep both open until all distinct requirements have a home; do not treat symlink retention alone as complete automatic switching.
+
+Details and verification gates: [low-risk PR and consolidation plan](low-risk-pr-plan-2026-09-08.md). Existing priority/category are unchanged. No GitHub mutation or product fix was made in this planning pass.
+
+
+## 2026-09-08 issue cleanup completed
+
+Added the shared branch-switching summary and preserved all of #764's retained-link, relative/removable flutter_sdk, metadata, and checkout requirements. #764 is now consolidated here. #681 remains open; no implementation was selected or delivered.
+
+[Posted maintainer reply](https://github.com/leoafarias/fvm/issues/681#issuecomment-5592539768). Original issue body and title were verified unchanged. Details: [cleanup audit](issue-cleanup-2026-09-08.md).

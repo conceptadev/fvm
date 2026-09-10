@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-762.md",
   "url": "https://github.com/leoafarias/fvm/issues/762",
-  "notes": "Build Docker image for linux/amd64 and linux/arm64 via Buildx."}
+  "notes": "Keep P2: Docker ARM64 is not delivered merely because standalone ARM binaries exist. PR #1053 remains open pending real multi-architecture validation.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: Docker ARM64 is not delivered merely because standalone ARM binaries exist. PR #1053 remains open pending real multi-architecture validation.",
+  "codeOrSource": ".github/workflows/deploy_docker.yml; open PR #1053",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-08-23T15:38:44Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-08-23T15:39:25Z",
+    "lastDiscussionAt": null
+  }
+}

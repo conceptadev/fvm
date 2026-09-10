@@ -6,6 +6,30 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1058.md",
   "url": "https://github.com/leoafarias/fvm/issues/1058",
-  "related_issues": [1050, 826, 933],
-  "notes": "Packaging defect, not FVM runtime. cli_pkg's pkg-chocolatey-deploy injects <dependency id=\"dart-sdk\" version=\"[<build version>]\"/> because the Chocolatey artifact is a Dart snapshot; the repo's own fvm.nuspec has its dependencies block commented out. NuGet treats the bracket as exact, so choco cannot upgrade dart-sdk past 3.9.0 while fvm is installed. Real fix is shipping the native Windows executable, which folds into the #1050 packaging workstream."
+  "related_issues": [
+    1050,
+    826,
+    933
+  ],
+  "notes": "Release tooling locks cli_pkg 2.14.0; its Chocolatey generator creates an exact dart-sdk dependency because snapshots are version-specific. #1021 did not change this packaging path.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "package_source_inspection",
+  "evidence": "Release tooling locks cli_pkg 2.14.0; its Chocolatey generator creates an exact dart-sdk dependency because snapshots are version-specific. #1021 did not change this packaging path.",
+  "codeOrSource": "tool/release_tool/pubspec.lock; cli_pkg-2.14.0/lib/src/chocolatey.dart:166-172",
+  "nextAction": "Retain the Chocolatey exact-Dart dependency defect until a package-level fix is verified; coordinate with #1050.",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2026-08-17T13:06:12Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-08-17T13:18:51Z",
+    "lastDiscussionAt": "2026-08-17T13:18:30Z"
+  },
+  "githubFollowup": {
+    "action": "related-scope",
+    "postedAt": "2026-09-08T22:10:43Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/1058#issuecomment-5592553483",
+    "originalReportPreserved": true
+  }
 }

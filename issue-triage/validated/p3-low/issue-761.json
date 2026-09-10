@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-761.md",
   "url": "https://github.com/leoafarias/fvm/issues/761",
-  "notes": "Detect leftover args and show unknown command usage error."}
+  "notes": "Published macOS ARM64 4.3.1: fluter --version prints 4.3.1 with exit 0; fluter alone correctly returns usage error 64.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "reproduced_4.3.1",
+  "evidence": "Published macOS ARM64 4.3.1: fluter --version prints 4.3.1 with exit 0; fluter alone correctly returns usage error 64.",
+  "codeOrSource": "lib/src/runner.dart:300; published fvm-4.3.1-macos-arm64.tar.gz",
+  "nextAction": "Validate unknown commands before honoring a global version flag, with regression tests.",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2024-08-22T05:36:02Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-08-22T05:36:17Z",
+    "lastDiscussionAt": null
+  }
+}

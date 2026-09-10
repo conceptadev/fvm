@@ -73,3 +73,17 @@ $ port search fvm
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P3: no verified MacPorts implementation in this review; age is not evidence that the packaging request is invalid.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up — completed
+
+The earlier keep-open recommendation was too conservative and is superseded by the external package check: [MacPorts lists FVM](https://ports.macports.org/port/fvm/), and its [current Portfile](https://github.com/macports/macports-ports/blob/master/devel/fvm/Portfile) contains `github.setup leoafarias fvm 4.3.1`.
+
+Closed completed at 2026-09-08T15:20:06Z. [Closure explanation](https://github.com/leoafarias/fvm/issues/578#issuecomment-5587516716). Availability was verified; no local MacPorts installation or multi-user test was run. No further implementation is required for the original packaging request.

@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1026.md",
   "url": "https://github.com/leoafarias/fvm/issues/1026",
-  "notes": "Valid project toolchain isolation gap; FVM has no project-scoped JDK setting today."
+  "notes": "Per-project JDK isolation is a design request beyond Flutter SDK selection. The comment's global-config deletion/rotation script is not an endorsed workaround and is unsafe for concurrent projects.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Per-project JDK isolation is a design request beyond Flutter SDK selection. The comment's global-config deletion/rotation script is not an endorsed workaround and is unsafe for concurrent projects.",
+  "codeOrSource": "lib/src/models/config_model.dart:ProjectConfig; issue #1026",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-04-05T13:26:53Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-04-27T10:54:22Z",
+    "lastDiscussionAt": "2026-04-27T10:54:22Z"
+  }
 }

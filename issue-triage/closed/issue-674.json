@@ -1,0 +1,39 @@
+{
+  "number": 674,
+  "title": "Pass global level flags and options",
+  "triagedAt": "2025-10-31",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-674.md",
+  "url": "https://github.com/leoafarias/fvm/issues/674",
+  "notes": "Closed as not planned after the maintainer approved retiring the optional flags/context refactor. Existing skipInput/isCI context support is partial implementation, not completion of the broader request.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "maintenance",
+  "reviewCategory": "not_planned",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Partially implemented: skipInput/isCI already live in FvmContext. General force/skipSetup options are still passed through workflows. Retain as optional internal DX design, not a missing feature across all flags.",
+  "codeOrSource": "lib/src/utils/context.dart:73,207; lib/src/workflows/ensure_cache.workflow.dart:142",
+  "nextAction": "No implementation is scheduled. Revisit only with a new maintainer scope decision.",
+  "ageContext": {
+    "createdAt": "2024-02-29T13:28:11Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-02-29T13:28:11Z",
+    "lastDiscussionAt": null
+  },
+  "previousReviewCategory": "backlog",
+  "previousGithubTriageLabel": "triage:backlog",
+  "githubLabels": [
+    "enhancement",
+    "dx"
+  ],
+  "closedAt": "2026-09-08T23:04:15Z",
+  "stateReason": "not_planned",
+  "closureKind": "declined_scope",
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/674#issuecomment-5593075163",
+  "githubFollowup": {
+    "action": "not-planned-closure",
+    "postedAt": "2026-09-08T23:04:14Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/674#issuecomment-5593075163",
+    "originalReportPreserved": true
+  }
+}

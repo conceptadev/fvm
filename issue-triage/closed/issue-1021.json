@@ -1,0 +1,16 @@
+{
+  "number": 1021,
+  "title": "Bump pub_updater to ^0.5.0",
+  "triagedAt": "2026-06-10",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-1021.md",
+  "url": "https://github.com/leoafarias/fvm/issues/1021",
+  "related_prs": [
+    1022
+  ],
+  "notes": "Already closed on GitHub: #1022 shipped in 4.3.1 with pub_updater >=0.4.0 <0.6.0, preserving Dart >=3.6.0.",
+  "closedAt": "2026-09-04",
+  "stateReason": "completed",
+  "reviewedAt": "2026-09-08"
+}

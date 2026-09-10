@@ -1,0 +1,41 @@
+{
+  "number": 764,
+  "title": "[Feature Request] FVM should automatically switch used Flutter version on git checkout",
+  "triagedAt": "2025-10-30",
+  "priority": "p2-medium",
+  "status": "closed",
+  "artifact": "../artifacts/issue-764.md",
+  "url": "https://github.com/leoafarias/fvm/issues/764",
+  "notes": "Closed as not_planned/consolidated into #681 after its distinct requirements were preserved there. Kept enhancement, added duplicate, and removed the active triage:backlog label. The original report remains unchanged and linked; the SDK-switching behavior is not fixed.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "consolidated",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: per-version project symlinks are still wiped during reference updates; overlaps #681.",
+  "codeOrSource": "lib/src/workflows/update_project_references.workflow.dart:68; related #681",
+  "nextAction": "Continue the consolidated requirements discussion in #681; no SDK-reference behavior was changed.",
+  "executionPlan": "../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "ageContext": {
+    "createdAt": "2024-08-23T21:27:52Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-08-23T21:27:52Z",
+    "lastDiscussionAt": null
+  },
+  "githubFollowup": {
+    "action": "consolidation-closure-comment",
+    "postedAt": "2026-09-08T22:10:12Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/764#issuecomment-5592548403",
+    "originalReportPreserved": true
+  },
+  "previousReviewCategory": "backlog",
+  "previousGithubTriageLabel": "triage:backlog",
+  "githubLabels": [
+    "enhancement",
+    "duplicate"
+  ],
+  "closedAt": "2026-09-08T22:10:13Z",
+  "stateReason": "not_planned",
+  "closureKind": "consolidated",
+  "consolidatedInto": 681,
+  "closure_comment_url": "https://github.com/leoafarias/fvm/issues/764#issuecomment-5592548403"
+}

@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-08",
+  "scope": "Approved issue consolidation and cleanup only",
+  "comments": [
+    {
+      "number": 681,
+      "kind": "consolidation-lead",
+      "author": "leoafarias",
+      "body": "I'm bringing #764 into this issue so the branch-switching discussion stays in one place. Current FVM still recreates `.fvm/versions` when updating project references, so the behavior reported here hasn't been fixed.\n\nThe combined request covers:\n\n- Keeping links for previously used SDK versions, so checking out another branch doesn't leave its VS Code SDK path missing.\n- Keeping the selected SDK consistent with `.fvmrc` after checkout, including tools that use `.fvm/flutter_sdk`.\n- #764's proposal to make `flutter_sdk` relative or remove it, and its question about whether the other `.fvm` files (`release`, `version`, and `fvm_config.json`) are still needed or should be tracked in Git.\n- What to do when a branch needs an SDK that isn't cached yet, and when a cached SDK is removed and leaves a broken project link.\n\nThese are requirements and design questions, not an agreed implementation. Keeping old links alone won't make every tool switch SDKs automatically. #764's original proposal will remain linked here, and I'll close that thread as consolidated.\n\nThe settings-comment loss discussed above stays in #635. #743 and #821 also remain separate for their specific VS Code integration requests.",
+      "created_at": "2026-09-08T22:09:25Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/681#issuecomment-5592539768",
+      "id": 5592539768
+    },
+    {
+      "number": 764,
+      "kind": "consolidation-closure-comment",
+      "author": "leoafarias",
+      "body": "I've carried the requirements into [#681](https://github.com/leoafarias/fvm/issues/681#issuecomment-5592539768), including retained version links, SDK consistency after checkout, the relative/removable `flutter_sdk` proposal, and the questions about the other `.fvm` files.\n\nI'm closing this thread to keep the discussion in one place. The feature remains open in #681; it hasn't been fixed, and we haven't chosen an implementation. The original proposal here will stay linked from that discussion.",
+      "created_at": "2026-09-08T22:10:12Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/764#issuecomment-5592548403",
+      "id": 5592548403
+    },
+    {
+      "number": 751,
+      "kind": "related-scope",
+      "author": "leoafarias",
+      "body": "I'm linking #1016 here because both requests deal with staying within a Flutter version range. They aren't quite the same: this issue asks for project ranges and reuse of compatible cached SDKs, while #1016 asks for `fvm install 3.38` to select the newest patch and for `fvm list` to show when another patch is available. I'll keep both open so that extra requirement isn't lost.\n\n#577 covers reading a Flutter constraint from `pubspec.yaml`; #648 covers selecting Flutter from a Dart constraint. #583's upgrade-and-remove-old-version workflow is separate.\n\nWe also need to revisit the exact-version decision in #421 before changing resolution behavior. Linking these reports doesn't change that policy or commit us to an implementation.",
+      "created_at": "2026-09-08T22:10:37Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/751#issuecomment-5592552450",
+      "id": 5592552450
+    },
+    {
+      "number": 1016,
+      "kind": "related-scope",
+      "author": "leoafarias",
+      "body": "This overlaps #751, so I've linked the discussions. I'm keeping this issue open: selecting the latest patch for a minor version and showing patch availability in `fvm list` are more specific than the range request there. The existing cleanup command doesn't provide that install behavior.\n\nThe earlier decision in #421 was to keep installs explicit. We'll need to resolve that policy question before changing how `fvm install 3.38` is interpreted.",
+      "created_at": "2026-09-08T22:10:38Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/1016#issuecomment-5592552662",
+      "id": 5592552662
+    },
+    {
+      "number": 648,
+      "kind": "scope-clarification",
+      "author": "leoafarias",
+      "body": "The Dart version is shown in `fvm list`, but not in `fvm releases`. PR #828 proposed the releases column and was closed without merging, so I don't want to mark that suggestion as shipped.\n\nThis issue still covers three requests:\n\n- Choose a Flutter release from a Dart SDK constraint.\n- Run commands against the lowest and highest supported SDK versions.\n- When no project or global SDK is selected, make `fvm dart` prefer the Dart SDK bundled with Flutter on PATH.\n\nI'm linking the constraint discussion to #751, while keeping the execution and fallback questions here. These remain feature requests; adding a table column wouldn't complete them.",
+      "created_at": "2026-09-08T22:10:40Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/648#issuecomment-5592552873",
+      "id": 5592552873
+    },
+    {
+      "number": 1050,
+      "kind": "related-scope",
+      "author": "leoafarias",
+      "body": "I'm linking the related Windows packaging reports here: #826 tracks Winget support generally, and #1058 tracks the Chocolatey Dart dependency that blocks an SDK upgrade.\n\nThis issue remains focused on native ARM64 delivery through package managers. The release zips don't settle Winget availability or the Chocolatey dependency conflict, so those reports will stay open separately.",
+      "created_at": "2026-09-08T22:10:41Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/1050#issuecomment-5592553080",
+      "id": 5592553080
+    },
+    {
+      "number": 826,
+      "kind": "related-scope",
+      "author": "leoafarias",
+      "body": "I've linked this with #1050 for Windows ARM64 package delivery. I'll keep this issue for Winget support generally, including x64. #1058 is a separate Chocolatey dependency problem; fixing that wouldn't by itself fulfill the Winget request.",
+      "created_at": "2026-09-08T22:10:42Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/826#issuecomment-5592553299",
+      "id": 5592553299
+    },
+    {
+      "number": 1058,
+      "kind": "related-scope",
+      "author": "leoafarias",
+      "body": "Your log shows Chocolatey refusing the upgrade because the FVM package requires exactly `dart-sdk 3.9.0`. That doesn't by itself show that FVM's Dart code is incompatible with 3.13.0.\n\nI've linked this to the native Windows packaging discussion in #1050, but I'm keeping this defect open. It needs a verified fix for the Chocolatey dependency conflict, not just a newer release zip.",
+      "created_at": "2026-09-08T22:10:43Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/1058#issuecomment-5592553483",
+      "id": 5592553483
+    },
+    {
+      "number": 759,
+      "kind": "needs-info",
+      "author": "leoafarias",
+      "body": "Since the app runs through FVM but fails from the VS Code launch configuration, I'd like to see which SDK the editor is actually using.\n\nIf this still happens with FVM 4.3.1, could you share the project `.fvmrc`, the Flutter SDK settings from VS Code's user/workspace settings, and the relevant `launch.json` entry? Please also include the launch error, your VS Code and Dart/Flutter extension versions, and `fvm flutter --version` from the same project. Redact private paths or launch arguments as needed.\n\nI'll keep this open while we check the editor's SDK selection.",
+      "created_at": "2026-09-08T22:10:45Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/759#issuecomment-5592553676",
+      "id": 5592553676
+    },
+    {
+      "number": 781,
+      "kind": "needs-info",
+      "author": "leoafarias",
+      "body": "The missing `fvm.exe` message tells us the Chocolatey launcher can't find its target, but it doesn't show why the installation failed.\n\nIf you're still seeing this, could you share the FVM package and Chocolatey versions, the failing install command, and the FVM install/error section of the Chocolatey log? In PowerShell, `Get-Command fvm -All` would also help, along with whether `C:\\ProgramData\\chocolatey\\lib\\fvm\\bin\\fvm.exe` exists. Please redact private paths or package-source credentials from the log.\n\nI can't tell from the report whether the username or another installation detail caused this, so I'm leaving it open for those diagnostics.",
+      "created_at": "2026-09-08T22:10:46Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/781#issuecomment-5592553860",
+      "id": 5592553860
+    },
+    {
+      "number": 1009,
+      "kind": "needs-info",
+      "author": "leoafarias",
+      "body": "Could you share a small public fork and exact ref that reproduce this, without any company code? Please include the FVM version and compare `fvm list` and `fvm flutter --version --machine` with `bin/flutter --version --machine` from a separate checkout of the same commit.\n\nThat comparison should tell us whether Flutter itself reports `0.0.0-unknown` or whether FVM is reading the version differently. The plain-version workaround above is useful, but it doesn't establish the cause of the `-patch` case. I'm keeping this open rather than assuming the similar report in #773 fixed it.",
+      "created_at": "2026-09-08T22:10:47Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/1009#issuecomment-5592554039",
+      "id": 5592554039
+    },
+    {
+      "number": 1017,
+      "kind": "needs-info",
+      "author": "leoafarias",
+      "body": "Thanks for confirming that `fvm flutter --version` selects 3.19.0. The doctor output also shows bare `flutter` resolving to the separate SDK under `D:\\Code\\Dart\\flutter_sdk\\flutter`. That explains the different terminal result, but it doesn't settle the IDE and elevated-terminal behavior you described.\n\nIf this still happens with FVM 4.3.1, could you share `Get-Command flutter,fvm -All`, `flutter --version`, `fvm flutter --version`, and `fvm doctor` from a fresh VS Code PowerShell terminal in the project? Please include the relevant workspace SDK/terminal settings and say which action opens the extra elevated terminal. Redact private paths as needed.\n\nI'll keep this open while we separate SDK selection from the permission problem.",
+      "created_at": "2026-09-08T22:10:48Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/1017#issuecomment-5592554276",
+      "id": 5592554276
+    }
+  ],
+  "closure": {
+    "closed_at": "2026-09-08T22:10:13Z",
+    "html_url": "https://github.com/leoafarias/fvm/issues/764",
+    "labels": [
+      "enhancement",
+      "duplicate"
+    ],
+    "number": 764,
+    "state": "closed",
+    "state_reason": "not_planned"
+  },
+  "skipped": []
+}

@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-894.md",
   "url": "https://github.com/leoafarias/fvm/issues/894",
-  "notes": "Add group-shared cache support (git core.sharedRepository, chmod g+rwX, optional cache group config)."}
+  "notes": "Keep P2: deliberate group-writable shared caches require permissions/ownership design; ordinary single-user caches do not solve it.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: deliberate group-writable shared caches require permissions/ownership design; ordinary single-user caches do not solve it.",
+  "codeOrSource": "lib/src/services/cache_service.dart; lib/src/services/git_service.dart; issue #894 permission requirements",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2025-07-16T09:50:22Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2025-07-16T09:50:22Z",
+    "lastDiscussionAt": null
+  }
+}

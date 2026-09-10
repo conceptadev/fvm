@@ -52,3 +52,19 @@ _No repro logs available; issue only contains screenshots._
 
 ## Notes for Follow-up
 - Respond on GitHub requesting the data listed above. If the reporter doesn’t respond within the SLA, consider closing as stale.
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes earlier recommendations above.
+
+- **Decision**: close as not planned; Archive unanswered Android Studio terminal-latency report after two June 2026 diagnostic requests; reported FVM version is unknown.
+- **Evidence**: Created before 4.0, but FVM version was never provided. Maintainer requested diagnostics 2026-06-10 and 2026-06-25 with no reporter response. #1066/4.1.5 removed cache maintenance on installed-SDK proxy hot paths, but this is not proof of this report's cause.
+- **Validation**: live issue body/comments, current origin/main at a6d93976d443082d73d4718750713e6248de6b84, and relevant source/docs inspected. No product changes or full runtime reproduction.
+- **Follow-up plan**: No fix is inferred. Reassess a fresh current-version reproduction with the diagnostics requested in the closure comment.
+- **GitHub explanation**:
+
+Closing this older support report as not planned because the diagnostic requests on June 10 and June 25 remain unanswered. We still do not have the FVM version, timings, or enough detail to isolate terminal startup from `pub get` or IDE work.
+
+If this persists on FVM 4.3.1, please open a fresh report with `fvm --version`, `fvm doctor`, the terminal/shell startup configuration, and comparative timings inside Android Studio versus an external terminal. Recent cache performance changes may help some cases, but I cannot say they fix this report without that evidence.
+
+**Verified closure**: 2026-09-08T15:03:43Z, GitHub reason `not_planned`. [Closure comment](https://github.com/leoafarias/fvm/issues/906#issuecomment-5587263695).

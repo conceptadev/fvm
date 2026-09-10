@@ -37,3 +37,19 @@ Request reporter to:
 
 ## Recommendation
 - Folder: `needs_info/`
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes earlier recommendations above.
+
+- **Decision**: close as not planned; Retire the FVM 3.2.1 CRLF/IDE support report; no current reproduction, and the IDE question has current documentation.
+- **Evidence**: Report 2024-11-12 identifies FVM 3.2.1 and `env: bash\\r` plus an unrelated global SDK path. No comments/current reproduction. Current Android Studio guide addresses SDK configuration; CRLF cause has not been reproduced or proven fixed.
+- **Validation**: live issue body/comments, current origin/main at a6d93976d443082d73d4718750713e6248de6b84, and relevant source/docs inspected. No product changes or full runtime reproduction.
+- **Follow-up plan**: No fix is inferred. Reassess a fresh current-version reproduction with the diagnostics requested in the closure comment.
+- **GitHub explanation**:
+
+Closing this FVM 3.2.1 support report as not planned during the pre-4.0 backlog cleanup. The IDE setup question is covered by the current [Android Studio guide](https://fvm.app/documentation/guides/android-studio); ongoing symlink compatibility remains tracked in #724/#767.
+
+The `env: bash\r` error is a separate script/line-ending problem, and I am not marking it fixed without a current reproduction. If it persists with FVM 4.3.1, please open a fresh report with `fvm doctor`, the exact failing command and verbose output, the resolved Flutter executable path, and the script's first line/line-ending information.
+
+**Verified closure**: 2026-09-08T15:03:32Z, GitHub reason `not_planned`. [Closure comment](https://github.com/leoafarias/fvm/issues/797#issuecomment-5587261365).

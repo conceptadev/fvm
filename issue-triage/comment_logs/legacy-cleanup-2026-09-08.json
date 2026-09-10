@@ -1,0 +1,114 @@
+{
+  "date": "2026-09-08",
+  "repo": "leoafarias/fvm",
+  "scope": "Maintainer-approved legacy backlog retirement and two diagnostic response windows; no fixed claims.",
+  "skill": "humanwriting:human-writing",
+  "before": {
+    "openIssues": 39
+  },
+  "after": {
+    "openIssues": 36
+  },
+  "comments": [
+    {
+      "number": 607,
+      "action": "not-planned-closure",
+      "author": "leoafarias",
+      "body": "We're not planning to maintain Snap or Flatpak packages. The install script linked above covers installation without Homebrew, so I'm closing this as not planned.",
+      "created_at": "2026-09-08T23:04:11Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/607#issuecomment-5593074742",
+      "id": 5593074742
+    },
+    {
+      "number": 674,
+      "action": "not-planned-closure",
+      "author": "leoafarias",
+      "body": "I'm closing this internal refactor request as not planned. We can revisit it if a specific command or workflow needs the change.",
+      "created_at": "2026-09-08T23:04:14Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/674#issuecomment-5593075163",
+      "id": 5593075163
+    },
+    {
+      "number": 738,
+      "action": "not-planned-closure",
+      "author": "leoafarias",
+      "body": "We're not planning to maintain an official Codespaces/devcontainer template, so I'm closing this as not planned. Docker ARM64 support remains tracked in #762.",
+      "created_at": "2026-09-08T23:04:16Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/738#issuecomment-5593075538",
+      "id": 5593075538
+    },
+    {
+      "number": 759,
+      "action": "diagnostic-deadline",
+      "author": "leoafarias",
+      "body": "Please retest with the latest FVM release (currently 4.3.1) and share the [VS Code details requested above](https://github.com/leoafarias/fvm/issues/759#issuecomment-5592553676) by September 22, 2026. If we still don't have a current reproduction after that, we'll close this report for now and can reopen it when those details are available.",
+      "created_at": "2026-09-08T23:04:19Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/759#issuecomment-5593075976",
+      "id": 5593075976
+    },
+    {
+      "number": 781,
+      "action": "diagnostic-deadline",
+      "author": "leoafarias",
+      "body": "If this still happens with the latest FVM package available through Chocolatey, please share the [install details requested above](https://github.com/leoafarias/fvm/issues/781#issuecomment-5592553860) by September 22, 2026. If we still don't have a current reproduction after that, we'll close this report for now and can reopen it when those details are available.",
+      "created_at": "2026-09-08T23:04:20Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/781#issuecomment-5593076111",
+      "id": 5593076111
+    }
+  ],
+  "closures": [
+    {
+      "closed_at": "2026-09-08T23:04:12Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/607",
+      "labels": [
+        "enhancement"
+      ],
+      "number": 607,
+      "state": "closed",
+      "state_reason": "not_planned"
+    },
+    {
+      "closed_at": "2026-09-08T23:04:15Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/674",
+      "labels": [
+        "enhancement",
+        "dx"
+      ],
+      "number": 674,
+      "state": "closed",
+      "state_reason": "not_planned"
+    },
+    {
+      "closed_at": "2026-09-08T23:04:18Z",
+      "html_url": "https://github.com/leoafarias/fvm/issues/738",
+      "labels": [
+        "enhancement",
+        "docker"
+      ],
+      "number": 738,
+      "state": "closed",
+      "state_reason": "not_planned"
+    }
+  ],
+  "informationWindows": [
+    {
+      "number": 759,
+      "respondBy": "2026-09-22",
+      "reviewOnOrAfter": "2026-09-23",
+      "timeZone": "America/New_York",
+      "commentUrl": "https://github.com/leoafarias/fvm/issues/759#issuecomment-5593075976",
+      "automationScheduled": false
+    },
+    {
+      "number": 781,
+      "respondBy": "2026-09-22",
+      "reviewOnOrAfter": "2026-09-23",
+      "timeZone": "America/New_York",
+      "commentUrl": "https://github.com/leoafarias/fvm/issues/781#issuecomment-5593076111",
+      "automationScheduled": false
+    }
+  ],
+  "originalReportsPreserved": true,
+  "skipped": [],
+  "evidenceDirectory": "/Users/leofarias/conductor/workspaces/fvm/abu-dhabi/.context/legacy-cleanup-CfQ7TS"
+}

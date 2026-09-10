@@ -6,5 +6,20 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-782.md",
   "url": "https://github.com/leoafarias/fvm/issues/782",
-  "notes": "Update running-flutter docs to replace ${@:1} with \"$@\" (or add a bash shebang) so rerouted scripts work under /bin/sh; leave open until docs merged."
+  "notes": "Current docs emit ${@:1} without a shebang. dash reproduction exits 2 with Bad substitution; macOS /bin/sh accepts it, so this is shell-dependent.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "shell_reproduction_and_source",
+  "evidence": "Current docs emit ${@:1} without a shebang. dash reproduction exits 2 with Bad substitution; macOS /bin/sh accepts it, so this is shell-dependent.",
+  "codeOrSource": "docs/pages/documentation/guides/running-flutter.mdx:69,76",
+  "nextAction": "PR 2: replace the unsafe executable-wrapper recipe with explicit FVM commands and existing interactive aliases; verify docs publication before closing. Keep packaged shims out of scope.",
+  "executionPlan": "../../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2024-09-16T19:32:22Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-09-16T19:32:22Z",
+    "lastDiscussionAt": null
+  }
 }

@@ -6,5 +6,23 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-635.md",
   "url": "https://github.com/leoafarias/fvm/issues/635",
-  "notes": "Stop rewriting VS Code settings with JsonEncoder; update only the dart.flutterSdkPath property while preserving existing comments, indentation, and tabs."
+  "notes": "VS Code JSONC is decoded then serialized with prettyJson; comments/formatting cannot survive that round trip.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "bug",
+  "reviewCategory": "confirmed",
+  "evidenceLevel": "code_inspection",
+  "evidence": "VS Code JSONC is decoded then serialized with prettyJson; comments/formatting cannot survive that round trip.",
+  "codeOrSource": "lib/src/workflows/update_vscode_settings.workflow.dart:164,189",
+  "nextAction": "Add a comment-preserving edit and tests for tabs, comments and unrelated settings.",
+  "githubTriageLabel": "triage:confirmed",
+  "ageContext": {
+    "createdAt": "2024-02-20T17:07:53Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-02-22T20:35:06Z",
+    "lastDiscussionAt": "2024-02-22T20:35:05Z"
+  },
+  "labelAudit": {
+    "date": "2026-09-08",
+    "note": "Removed good first issue; comment-preserving JSONC editing has nontrivial parsing/format-preservation risks. Bug, triage:confirmed and help wanted remain."
+  }
 }

@@ -1,75 +1,71 @@
 # Issue Triage Log
 
 **Started**: 2025-10-30
-**Current Version**: v4.1.4
-**Total Open Issues**: 50
-**Historical Issues Triaged**: 111
+**Current Version**: v4.3.1
+**Last Reviewed**: 2026-09-08
+**Total Open Issues**: 36
+**Historical Issues Triaged**: 116
 
 ## Progress Tracker
 
-### P0 - Critical (Documentation/Setup Blockers)
+Type and evidence are separate from priority: **7 confirmed, 2 compatibility, 4 needs-info, 23 feature/design backlog**. See the [latest legacy cleanup](legacy-cleanup-2026-09-08.md), [consolidation cleanup](issue-cleanup-2026-09-08.md) and historical [category review](open-issue-categories-2026-09-08.md).
+
+### P0 - Critical
+
 - _No open issues_
 
-### P1 - High (Installation/Major Issues)
-- [ ] #688 - FVM still performs Git installs; need archive-based strategy honoring FLUTTER_STORAGE_BASE_URL/FLUTTER_RELEASES_URL mirrors with checksum validation and docs. PR #1013 was closed unmerged on 2026-08-19, so this needs a new implementation pass.
-- [ ] #1061 - Every non-fork command runs `git fsck --connectivity-only` over the whole bare cache via `ensureBareCacheIfPresent`, adding ~4s per `fvm flutter`/`fvm dart`; the result cannot change that call site's outcome, so it should use the shape check only.
+### P1 - High
 
-### P2 - Medium (Standard Bugs/Enhancements)
-- [ ] #577 - Allow `fvm install` to read `environment.flutter` from pubspec.yaml (via a new flag or fallback), resolve the constraint to a concrete release, and install that version automatically.
-- [ ] #583 - Add an `fvm upgrade` workflow (with `--force`/`--remove-old`) that resolves the latest channel release, installs it, and switches the global SDK without manual remove/global steps.
-- [ ] #635 - Stop rewriting VS Code settings with JsonEncoder; update only the dart.flutterSdkPath property while preserving existing comments, indentation, and tabs.
-- [ ] #648 - Add constraint-aware tooling: resolve Flutter versions from Dart SDK ranges, run commands against min/max pubspec constraints, and make `fvm dart` fall back to Flutter's bundled Dart instead of a standalone PATH binary.
-- [ ] #674 - Introduce command-scoped options in FvmContext so flags like --force/--skip-setup don't need to be threaded through every workflow; add helpers, reset per command, and update docs/tests.
-- [ ] #681 - Stop deleting .fvm/versions on each switch; preserve per-version symlinks so branch checkouts keep working, add cleanup tooling, and update docs.
-- [ ] #689 - Rich table output lacks a plain/text mode. Add console style toggle (config + CLI flag), auto-fallback for non-TTY, and update docs/tests.
-- [ ] #696 - Project.localFvmPath ignores .fvmrc cachePath overrides. Add support for relative/absolute overrides, update docs, and test multi-project scenarios.
-- [ ] #702 - Workspace-level dart.flutterSdkPath overrides folder-specific settings. Skip writing it when multi-root, rely on per-folder configs, and update docs.
-- [ ] #724 - Set Android Studio Flutter SDK path to .fvm/flutter_sdk or rely on FVM automation.
-- [ ] #738 - Provide Codespaces devcontainer leveraging existing Docker image.
-- [ ] #743 - Consider pointing VS Code to .fvm/flutter_sdk or using getFlutterSdkCommand.
-- [ ] #762 - Build Docker image for linux/amd64 and linux/arm64 via Buildx.
-- [ ] #764 - Retain per-project version symlinks instead of wiping .fvm/versions.
-- [ ] #767 - Android Studio/IntelliJ resolves FVM symlinks to physical or cross-project SDK paths; multiple current confirmations make this a valid P2 compatibility bug.
-- [ ] #782 - Update running-flutter docs to replace ${@:1} with "$@" (or add a bash shebang) so rerouted scripts work under /bin/sh; leave open until docs merged.
-- [ ] #811 - Create official Nix derivation/flake and upstream to nixpkgs.
-- [ ] #821 - Add fvm path command + configure dart.getFlutterSdkCommand / dart.getDartSdkCommand in VS Code workflow.
-- [ ] #826 - Add Winget manifests and release automation to mirror Windows binaries.
-- [ ] #894 - Add group-shared cache support (git core.sharedRepository, chmod g+rwX, optional cache group config).
-- [ ] #968 - Setup reports success even when required tools (e.g., unzip) are missing; fail fast when SDK remains not-setup after `flutter --version`.
-- [ ] #1008 - Extend Melos auto-update to support `pubspec.yaml`-based `melos.sdkPath` (not just `melos.yaml` root `sdkPath`).
-- [ ] #1021 - Bump `pub_updater` to `^0.5.0` so FVM can coexist with newer workspace tooling; PR #1022 is open.
-- [ ] #1024 - Make Windows no-admin use/install path automatic or obvious; `privilegedAccess: false` exists but is only a partial/manual workaround.
-- [ ] #1026 - Add or document per-project JDK configuration so Flutter's global `--jdk-dir` setting does not leak across projects.
-- [ ] #1042 - Design multi-SDK-family support for Flutter-Tizen/Flutter-TVOS/future custom SDKs; existing fork aliases are only a partial workaround.
-- [ ] #1046 - Fish terminal left in raw mode after Ctrl+C during `fvm flutter …`; reopens #801 class of bug on 4.1.2 (zsh/direct Flutter OK).
-- [ ] #1050 - Deliver the existing native Windows arm64 release archives through architecture-aware Winget/Chocolatey packaging; overlaps #826.
-- [ ] #1058 - Chocolatey package pins `dart-sdk` to an exact version because `cli_pkg` ships a Dart snapshot, blocking `choco upgrade dart-sdk`; native Windows packaging is the real fix and folds into #1050.
+- _No open issues_
 
-### P3 - Low (Minor Issues/Feature Requests)
-- [ ] #578 - Create a MacPorts Portfile that installs FVM from GitHub releases, submit it to the MacPorts ports tree, and update docs so macOS users have a Homebrew alternative.
-- [ ] #584 - Document the custom Flutter remote feature (`fvm config --flutter-url`, `FVM_FLUTTER_URL`, `FLUTTER_GIT_URL`) and enhance CLI help so users know how to override the clone source.
-- [ ] #600 - Expand Android Studio/IntelliJ docs with step-by-step guidance, screenshots, and troubleshooting so users point to `.fvm/flutter_sdk` and understand how dynamic updates work.
-- [ ] #607 - Package FVM as a Snap (classic confinement) and evaluate Flatpak viability; update release automation and installation docs accordingly.
-- [ ] #751 - Explore semver constraint parsing for version ranges.
-- [ ] #757 - Use fvm config --flutter-url or fvm fork add to point to Shorebird repo.
-- [ ] #761 - Detect leftover args and show unknown command usage error.
-- [ ] #784 - Consider `fvm env` command to print PATH exports for temporary sessions.
-- [ ] #787 - Assess packaging wrapper scripts; document current PATH-based workflow.
-- [ ] #1009 - Improve custom fork docs/output for non-standard refs that show unknown Flutter version metadata.
-- [ ] #1016 - Consider partial-version install resolution (`3.38` -> latest `3.38.x`) behind explicit resolver behavior.
-- [ ] #1048 - Do not WARN when `updateVscodeSettings: false` is intentional; skip is correct but message tells users to remove the flag.
+### P2 - Medium
+
+- [ ] #577 - [backlog] Keep P2: pubspec Flutter-constraint resolution is still an enhancement; installing an explicitly pinned version is not equivalent.
+- [ ] #583 - [backlog] Keep P2: fvm cleanup does not install upgrades or switch the global SDK; the upgrade workflow request remains.
+- [ ] #635 - [confirmed] VS Code JSONC is decoded then serialized with prettyJson; comments/formatting cannot survive that round trip.
+- [ ] #648 - [backlog] Keep P2: Dart-constraint resolution, min/max commands and Dart fallback are distinct from displaying a Dart SDK column. Interest continued in May 2026.
+- [ ] #681 - [backlog] Keep P2: UpdateProjectReferencesWorkflow still deletes and recreates .fvm/versions; branch switching can lose versioned links.
+- [ ] #689 - [backlog] Outstanding plain-text output is an enhancement. Preserve the historical bug label for the old third-party completion regression, but do not count that as a reproduced 4.3.1 bug. The old linked _fvm path now returns 404; that does not prove resolution.
+- [ ] #696 - [backlog] Keep P2: request is to relocate the project .fvm metadata directory, not the SDK cache. Project.localFvmPath is fixed to project/.fvm. Design a separate metadata-path option; do not reinterpret cachePath.
+- [ ] #702 - [backlog] Multi-SDK VS Code workspace support is an IDE-integration feature request, not a proven FVM setting-precedence defect. Verify Dart-Code capability before implementing.
+- [ ] #724 - [upstream] Doctor reads IDE metadata, while actual SDK selection is controlled by the plugin; November 2025 follow-up reports continued branch-switch mismatches.
+- [ ] #743 - [backlog] Keep P2: generated VS Code settings still use project.localVersionSymlinkPath, not the stable .fvm/flutter_sdk alias. Manual opt-out is only a workaround.
+- [ ] #762 - [backlog] Keep P2: Docker ARM64 is not delivered merely because standalone ARM binaries exist. PR #1053 remains open pending real multi-architecture validation.
+- [ ] #767 - [upstream] May/June 2026 reports confirm physical/cross-project SDK-path substitution in Android Studio. The current guide acknowledges symlink limitations; no local IDE reproduction was performed.
+- [ ] #782 - [confirmed] Current docs emit ${@:1} without a shebang. dash reproduction exits 2 with Bad substitution; macOS /bin/sh accepts it, so this is shell-dependent.
+- [ ] #821 - [backlog] Keep P2: VS Code command-based SDK discovery and a path command remain separate from writing a static dart.flutterSdkPath.
+- [ ] #826 - [backlog] Keep P2: Winget manifests/release automation remain packaging work; native Windows archives alone do not fulfill it.
+- [ ] #894 - [backlog] Keep P2: deliberate group-writable shared caches require permissions/ownership design; ordinary single-user caches do not solve it.
+- [ ] #968 - [confirmed] FlutterService.setup uses run with throwOnError=false; SetupFlutterWorkflow ignores the returned exit code and logs success without rechecking isSetup. Existing test covers interruption, not ordinary nonzero exits.
+- [ ] #1008 - [confirmed] Melos integration only locates melos.yaml and updates its root sdkPath; the report uses pubspec.yaml/melos/sdkPath. Automatic environment constraint updates are a separate enhancement.
+- [ ] #1024 - [backlog] Keep P2: privilegedAccess:false is a manual workaround; automatic/clear Windows no-admin behavior remains requested.
+- [ ] #1026 - [backlog] Per-project JDK isolation is a design request beyond Flutter SDK selection. The comment's global-config deletion/rotation script is not an endorsed workaround and is unsafe for concurrent projects.
+- [ ] #1042 - [backlog] Keep P2: multiple SDK families require more than fork aliases; the reporter confirms the fork-only workaround is insufficient.
+- [ ] #1050 - [backlog] Keep P2: distribute native Windows ARM64 binaries through architecture-aware package managers; release archives alone are insufficient.
+- [ ] #1058 - [confirmed] Release tooling locks cli_pkg 2.14.0; its Chocolatey generator creates an exact dart-sdk dependency because snapshots are version-specific. #1021 did not change this packaging path.
+- [ ] #1073 - [backlog] Keep P2 (new): initial bare git-cache fetch buffers output without explicit progress; add visible phases/progress while preserving non-TTY behavior.
+- [ ] #1074 - [backlog] Keep P2 (new): platform-based automatic SDK routing is not implemented. Explicit FVM flavors are a workaround, not equivalent; coordinate SDK-family design with #1042.
+
+### P3 - Low
+
+- [ ] #751 - [backlog] Keep P3: semver-range input remains distinct from exact releases/channels; no complete range resolver established.
+- [ ] #757 - [backlog] Keep P3: custom fork URLs address source selection, not the complete Shorebird tool/update lifecycle. Document supported boundaries before closing.
+- [ ] #761 - [confirmed] Published macOS ARM64 4.3.1: fluter --version prints 4.3.1 with exit 0; fluter alone correctly returns usage error 64.
+- [ ] #784 - [backlog] Keep P3: temporary shell-scoped SDK selection differs from project/global selection; an env/export workflow remains unimplemented.
+- [ ] #787 - [backlog] Keep P3: rustup-style global project-aware flutter shims are not equivalent to fvm global plus PATH; September 2026 interest keeps the request current.
+- [ ] #1016 - [backlog] Keep P3: cleanup patch recommendations are not an install-time partial-version resolver.
+- [ ] #1048 - [confirmed] The explicit updateVscodeSettings:false branch still warns that users should remove the setting.
 
 ### Needs More Info
-- [ ] #731 - Screenshot only; request commands and logs.
-- [ ] #759 - Need VSCode settings and error output.
-- [ ] #781 - Request Chocolatey verbose logs and directory listing.
-- [ ] #797 - Suspect CRLF line endings in Flutter script; awaiting diagnostics.
-- [ ] #809 - Request verbose logs and reproduction outside Sidekick.
-- [ ] #906 - Unable to reproduce without timing/log data; need shell config and measurements.
-- [ ] #1017 - PATH/IDE mismatch likely; need minimal repro (`fvm flutter --version`, `flutter --version` in fresh terminal, `where flutter`).
+
+- [ ] #759 - [needs_info] CLI works but VS Code launch uses a different SDK; no settings/launch logs establish whether FVM or IDE configuration causes it. Retriaged as a support question, not a request to silently change the global SDK. Diagnostics requested by September 22; review new replies on or after September 23 before considering closure.
+- [ ] #781 - [needs_info] Old Chocolatey missing-executable report lacks install logs. Non-ASCII username is a hypothesis, not a proven cause. Diagnostics requested by September 22; review new replies on or after September 23 before considering closure.
+- [ ] #1009 - [needs_info] A custom patch tag reports 0.0.0-unknown, but no minimal public fork/metadata comparison proves FVM is responsible. Current fallback improvements do not prove this symptom fixed.
+- [ ] #1017 - [needs_info] Reported on FVM 4.0.5: fvm flutter works but bare flutter/VS Code PATH differs. This is not a validated install/use failure and is not pre-4-only.
 
 ### Delegated MCP
-- _No open delegated MCP issues_
+
+- _No open issues_
 
 ---
 
@@ -348,12 +344,136 @@
 - Scoped the branch to triage-only content: removed an incidental `.fvmrc`, reverted unrelated `fvm_mcp` formatter churn to `origin/main`, and dropped the local Android Studio docs copy already published as PR #1056. Relocated `mcp_task.md` under `issue-triage/` to match the `README.md` reference.
 ---
 
+### Session 26: 2026-08-23 (Post-4.2.0 Sync, #1061 Closure, #1064 Intake)
+- Ran `scripts/sync_github.sh` against live GitHub. Open set is still **50 issues** and **6 PRs** (`#828`, `#1022`, `#1051`, `#1053`, `#1054`, `#1056`). `origin/main` is now **v4.2.0** (4.1.5 and 4.2.0 shipped since Session 25). Research used `origin/main`; product code was not merged into this triage-only branch.
+- Archived **#1061** to `closed/`. GitHub closed it as completed on 2026-08-22 via PR **#1066**, shipped in 4.1.5. `RunConfiguredFlutterWorkflow` now calls `EnsureCacheWorkflow(maintainGitCacheOnHit: false)`, so `fvm flutter` / `fvm dart` skip `ensureBareCacheIfPresent` / `git fsck --connectivity-only` on a cache hit. #688 is the only remaining P1.
+- Archived **#1059** (opened and closed 2026-08-19, so it never sat in the open queue). Data-loss git-cache migration against unrelated repos; fixed by PR **#1060** in 4.1.4.
+- Validated new **#1064** as **P2**. Official install docs prefix `FVM_INSTALL_DIR` onto `curl` in a `curl | bash` pipeline, so bash never sees it and custom-dir install silently uses `$HOME/fvm`. Confirmed on the live fvm.app page, `installation.mdx:127`, and a local POSIX env-prefix experiment. `install.sh` already reads the variable; CI only tests `export` + direct invoke. Plan: put the assignment on `bash`, guard the old snippet in CI, publish docs.
+- Reconfirmed **#688** is still unresolved on v4.2.0 (git clone install path; no archive installer). Open PRs are unchanged except that **#1013** remains closed unmerged. No other open issue is now a P0/P1, and none of the remaining 49 pre-existing classifications changed.
+- Classification parity: 50 open GitHub issues = 1 P1 + 30 P2 + 12 P3 + 7 needs-info. Closed archive is 64.
+---
+
+### Session 26b: 2026-08-23 (#688 closed not planned)
+- Reviewed remaining P1 candidates with the maintainer. **#688 was the only P1.** No other open issue meets the P1 bar (install/setup blocker with no practical workaround).
+- Explained that "archive install" means downloading Flutter SDK zip/tar files from `FLUTTER_STORAGE_BASE_URL` instead of `git clone`. That is **not** FVM's current install model. Custom Git remotes already work via `FLUTTER_GIT_URL` / `FVM_FLUTTER_URL` / `fvm config --flutter-url`.
+- The implementation PR **#1013** was already closed unmerged on 2026-08-19; the GitHub **issue** was still open. Closed **#688** as **not planned** (`2026-08-23T19:31:47Z`).
+- Open queue is now **49 issues**, **0 P1**. Highest remaining work is P2, starting with the #1064 docs one-liner.
+---
+
+### Session 27: 2026-08-25 (4.3.0 Resync, No New Intake)
+- Re-ran `scripts/sync_github.sh`. Live GitHub still has **49 open issues** and the same **6 open PRs** (#1056, #1054, #1053, #1051, #1022, #828). No issues created since 2026-08-23. The only GitHub close in that window is #688, already archived.
+- `origin/main` is now **v4.3.0** (PR #1068 `fvm cleanup`). Re-checked overlap with the open queue:
+  - **#583** stays P2: cleanup can remove unused cached SDKs, but there is still no `fvm upgrade` / `--remove-old` / `fvm remove --force`.
+  - **#681 / #764** stay P2: 4.3.0 does not change project `.fvm/versions` wiping on `fvm use`.
+  - **#1064** stays P2: install docs on `origin/main` and fvm.app still put `FVM_INSTALL_DIR` on `curl`.
+- Needs-info set is unchanged and still silent (#731, #759, #781, #797, #809, #906, #1017). No new reproduction data; left open per the age policy.
+- Classification parity: 49 open = 0 P0 + 0 P1 + 30 P2 + 12 P3 + 7 needs-info. Nothing new to intake or escalate.
+---
+
+### Session 28: 2026-09-04 (Urgency Resync)
+- Re-ran `scripts/sync_github.sh`. Live GitHub still has **49 open issues** (same numbers as Session 27). No issues created or closed since 2026-08-25. Open PRs are now **7** because **PR #1070** (`docs: put FVM_INSTALL_DIR on the bash side of the install pipe`, Fixes #1064) opened 2026-08-28.
+- Urgency pass against `origin/main` v4.3.0 and the live bug list: **no P0, no P1**. Default install still works; no widespread install/runtime regression.
+- **#1064** stays P2: the docs one-liner is still wrong on main/fvm.app; PR #1070 is the exact planned fix and is the highest-value merge. Do not close until it lands and the site publishes.
+- **#1046** stays P2: PR #1054 was touched 2026-08-31 but still has no full CLI CI / review (Vercel auth failure only). Highest-value remaining runtime bug, fish-only.
+- **#787** stays P3: new 2026-09-02 comment wants rustup-style global `flutter` on PATH; that is already `fvm global` + PATH, not an urgent bug.
+- Classification parity unchanged: 49 open = 0 P0 + 0 P1 + 30 P2 + 12 P3 + 7 needs-info.
+---
+
+### Session 29: 2026-09-08 (4.3.1 refresh and pre-4.0 legacy cleanup)
+
+- Reviewed all 48 live open issue threads; used the corrected pre-4.0 cutoff without blanket age-based closure. Full evidence and retained-issue decisions: [closure audit](issue-closure-audit-2026-09-08.md).
+- [x] #584 → closed (completed): Custom Flutter remotes and the requested FLUTTER_GIT_URL fallback are implemented and documented.
+- [x] #600 → closed (completed): Android Studio setup documentation shipped in #1056; automatic IDE switching remains tracked in #724/#767.
+- [x] #731 → closed (not planned): Retire the legacy 3.1.5–3.1.7 cache support thread; current hook-environment protection exists, but the original screenshot-only failure is not proven fixed.
+- [x] #797 → closed (not planned): Retire the FVM 3.2.1 CRLF/IDE support report; no current reproduction, and the IDE question has current documentation.
+- [x] #809 → closed (not planned): Retire the FVM 3.2.1 Sidekick follow-up; original tracking stays in sidekick#280, no reliable CLI reproduction.
+- [x] #811 → closed (completed): FVM is already packaged in nixpkgs; current upstream derivation targets 4.3.1.
+- [x] #906 → closed (not planned): Archive unanswered Android Studio terminal-latency report after two June 2026 diagnostic requests; reported FVM version is unknown.
+- [x] #1021, #1046, #1064 → archived: already closed September 4, now reconciled with shipped/published fixes.
+- [x] #1073 → P2: initial bare Git-cache fetch has no streamed progress; implementation and verification plan captured.
+- [x] #1074 → P2: automatic platform-based SDK selection is distinct from explicit flavors; design/compatibility plan captured.
+- Corrected historical scope assumptions for #696 (metadata versus SDK cache), #702 (verify extension precedence), #757 (fork source versus tool lifecycle), #787 (project-aware shims versus global pin) and #724 (IDE selection versus doctor metadata).
+- Kept #782, #681/#764, #724/#767, #762 and all other still-relevant enhancements open. #759/#781/#1017 remain needs-info.
+- Sole open PR #1053 remains on hold; no PR mutation or release action.
+- Verified closure reasons, rebuilt per-issue classifications and counters, refreshed live GitHub before handoff. Final parity: 41 open = 28 P2 + 10 P3 + 3 needs-info; 75 archived, 116 historical.
+---
+
+### Session 30: 2026-09-08 (Type and validity categorization)
+
+- Reviewed all 41 retained items by type, evidence, age and current scope. Full table: [category review](open-issue-categories-2026-09-08.md).
+- [x] #578 → closed completed after verifying the MacPorts Portfile targets 4.3.1. Supersedes the earlier keep-open recommendation.
+- [x] #1009 → needs-info, not a validated P3 defect; require direct-SDK comparison and a minimal fork/ref.
+- [x] #761 → confirmed bug, reproduced on the published 4.3.1 binary; corrected GitHub type label.
+- [x] #759 → question / needs-info, not automatic global-SDK switching.
+- [x] All 40 retained issues → labeled: 7 triage:confirmed, 2 triage:upstream, 4 need info, 27 triage:backlog. Per-issue JSON/artifacts capture evidence, next steps and pre-label activity dates.
+- #674 partly implemented flags/context behavior and #689 mixed completion/plaintext scope now explicitly recorded.
+- #782 reproduced under dash; macOS sh accepts the syntax. No universal shell-failure claim.
+- Preserved historical plans and existing unrelated labels; grouped overlaps without speculative duplicate closure.
+- Final parity: 40 open = 28 P2 + 8 P3 + 4 needs-info; 76 archived, 116 historical. No P0/P1; PR #1053 unchanged.
+---
+
+### Session 31: 2026-09-08 (Housekeeping recommendations and label audit)
+
+- Verified exactly one review-state label on all 40 open issues; category counts unchanged.
+- [x] #826 → added windows area label for Winget.
+- [x] #635 → removed good first issue because lossless JSONC editing has nontrivial design/testing requirements; bug/confirmed/help wanted retained.
+- Saved [housekeeping plan](housekeeping-plan-2026-09-08.md): proposed lead issues, consolidation boundaries, targeted needs-info requests/30-day response-window proposal, explicit maintenance decisions for older features, and local source-of-truth cleanup.
+- No issue closures, parent/child creation, information-request comments or stale automation in this pass. Product/priority classifications unchanged.
+- Final counters remain 40 open (28 P2, 8 P3, 4 needs-info), 76 archived; 7 confirmed, 2 compatibility, 27 backlog.
+---
+
+### Session 32: 2026-09-08 (Low-risk PR and consolidation execution plan)
+
+- Saved the [low-risk PR and consolidation plan](low-risk-pr-plan-2026-09-08.md): two independently reviewable fixes (#1048, #782), one optional triage-guidance PR, explicit test/publication gates, and separate administrative cleanup.
+- Rechecked live main/release state (4.3.1, a6d93976), the two fix code/doc paths and existing tests. The current dirty triage branch remains on 4.1.4; future product PRs must start from current main without importing unrelated triage changes.
+- #1048: narrowed to the specific opt-out warning, retaining the debug/return path and unrelated unpinned-project warning. Existing Logger.outputs supports focused assertions; file-preservation tests and branch smoke test are planned, not run.
+- #782: refined the low-risk scope to withdrawing unsafe process-wide wrapper instructions in favor of explicit FVM commands / existing aliases. Missing shebang/argument syntax, executable overwrites and PATH fallback recursion make a replacement shim installer inappropriate for this batch.
+- #681/#764: conditional consolidation only after preserving the relative-link and checkout requirements. #751/#1016: link first; the latter additionally requires fvm list patch-availability indicators. Closed #421 requires a version-resolution policy decision.
+- #648: confirmed fvm list has Dart Version but fvm releases does not; #828 was closed unmerged September 4 by documented scope/UX decision. Preserved all three original Dart requirements; no automatic reopening.
+- #607: retained pending an explicit Snap/Flatpak maintenance decision; no claim the feature is implemented. Windows packaging remains linked but separate.
+- Updated eight existing per-issue artifacts/JSON next actions with the execution-plan reference and refreshed the current README ordering. Historical evidence, age fields, classifications and counters remain intact.
+- Planning-only pass: no product edits, runtime tests, GitHub comments/body edits/labels/closures, branches, PRs or release actions. Final live issue/label parity was rechecked before handoff.
+
+---
+
+### Session 33: 2026-09-08 (Approved issue consolidation and cleanup)
+
+- Completed the [approved cleanup](issue-cleanup-2026-09-08.md) using short, issue-specific maintainer replies. The Human Writing skill was applied without changing technical meaning or inventing delivery claims.
+- [x] #764 → closed as not_planned/consolidated into #681 after recording retained links, relative/removable flutter_sdk, metadata, checkout, and cache-lifecycle requirements in the surviving thread. Kept enhancement, added duplicate and removed the active backlog label. No SDK behavior was fixed.
+- [x] #751/#1016 → linked with their different range, installation and patch-indicator requirements preserved; both remain open pending the #421 policy question.
+- [x] #648 → clarified the three original Dart requests and list-versus-releases output; #828 stays closed unmerged.
+- [x] #1050/#826/#1058 → linked, retaining separate ARM64, general Winget and Chocolatey-dependency scopes. All remain open.
+- [x] #759/#781/#1009/#1017 → posted targeted diagnostic requests that acknowledge existing evidence. All remain needs-info; no response deadline or stale automation was introduced.
+- #607 remains untouched pending an explicit Snap/Flatpak maintenance decision. No other issues were closed or old PRs reopened.
+- Verified all 12 posted replies, original titles/bodies, and #764's actual closure reason. Saved the [comment journal](../comment_logs/issue-cleanup-2026-09-08.json), updated per-issue artifacts/next actions, archived #764 and refreshed the GitHub snapshot. Reporter-activity timestamps were preserved separately from these maintainer replies.
+- Final queue: 39 open = 27 P2 + 8 P3 + 4 needs-info; 77 archived, 116 historical. Categories: 7 confirmed, 2 compatibility, 4 needs-info, 26 backlog. Only open PR #1053 is unchanged. No product code, tests, PRs or release actions in this pass.
+
+---
+
+### Session 34: 2026-09-08 (Approved legacy backlog retirement)
+
+- Used the Human Writing skill for five concise, issue-specific replies; fresh preflight checks found no new reporter evidence on these five issues.
+- [x] #607 → closed as not planned: maintainer declined Snap/Flatpak maintenance. The installer alternative is not proof those packages shipped.
+- [x] #674 → closed as not planned: retired the optional flags/context refactor, not a verified bug fix.
+- [x] #738 → closed as not planned: declined an official Codespaces/devcontainer template. Docker ARM64 #762 and PR #1053 remain separate and open.
+- [x] #759/#781 → remain needs-info, with current diagnostics requested by September 22, 2026. Review replies on or after September 23 before considering not-planned closure. No automatic closure was scheduled; #1009/#1017 have no deadline.
+- Preserved original issue titles/bodies, unrelated labels and pre-cleanup activity dates. Removed only the active backlog label from the three closed issues; no other GitHub issues or PRs were edited.
+- Saved the [legacy cleanup audit](legacy-cleanup-2026-09-08.md) and [comment journal](../comment_logs/legacy-cleanup-2026-09-08.json); archived the three records and refreshed the live queue.
+- Final queue: 36 open = 25 P2 + 7 P3 + 4 needs-info; 80 archived, 116 historical. Categories: 7 confirmed, 2 compatibility, 4 needs-info, 23 backlog. Of the 36, 23 predate FVM 4.0; age is not an affected-version assertion. No product edits, tests, new PRs or release actions.
+
+---
+
 ## Summary Statistics
-- **Open Issues**: 50
+
+- **Last Counter Verification**: 2026-09-08 (Session 34; three optional requests retired)
+- **Open Issues**: 36
 - **P0 Critical**: 0
-- **P1 High**: 2
-- **P2 Medium**: 29
-- **P3 Low**: 12
-- **Needs Info**: 7
+- **P1 High**: 0
+- **P2 Medium**: 25
+- **P3 Low**: 7
+- **Needs Info**: 4
 - **Delegated MCP**: 0
-- **Resolved/Archived**: 62
+- **Resolved/Archived**: 80
+- **Evidence-backed Defects**: 7
+- **IDE Compatibility**: 2
+- **Feature/Design Backlog**: 23

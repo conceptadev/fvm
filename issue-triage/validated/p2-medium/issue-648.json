@@ -6,5 +6,26 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-648.md",
   "url": "https://github.com/leoafarias/fvm/issues/648",
-  "notes": "Add constraint-aware tooling: resolve Flutter versions from Dart SDK ranges, run commands against min/max pubspec constraints, and make `fvm dart` fall back to Flutter’s bundled Dart instead of a standalone PATH binary."
+  "notes": "Keep P2: Dart-constraint resolution, min/max commands and Dart fallback are distinct from displaying a Dart SDK column. Interest continued in May 2026.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: Dart-constraint resolution, min/max commands and Dart fallback are distinct from displaying a Dart SDK column. Interest continued in May 2026.",
+  "codeOrSource": "lib/src/commands/dart_command.dart; lib/src/workflows/check_project_constraints.workflow.dart",
+  "nextAction": "Keep Dart-constraint selection, min/max execution and bundled-Dart fallback open; no automatic reopening of #828.",
+  "executionPlan": "../../artifacts/low-risk-pr-plan-2026-09-08.md",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-02-23T18:07:24Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2026-05-31T23:58:23Z",
+    "lastDiscussionAt": "2026-05-31T23:58:23Z"
+  },
+  "githubFollowup": {
+    "action": "scope-clarification",
+    "postedAt": "2026-09-08T22:10:40Z",
+    "commentUrl": "https://github.com/leoafarias/fvm/issues/648#issuecomment-5592552873",
+    "originalReportPreserved": true
+  }
 }

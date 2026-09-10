@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-1042.md",
   "url": "https://github.com/leoafarias/fvm/issues/1042",
-  "notes": "Valid multi-SDK-family architecture enhancement. Existing fork aliases support one custom Flutter repository, but FVM does not currently model multiple SDK families in one .fvmrc."
+  "notes": "Keep P2: multiple SDK families require more than fork aliases; the reporter confirms the fork-only workaround is insufficient.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: multiple SDK families require more than fork aliases; the reporter confirms the fork-only workaround is insufficient.",
+  "codeOrSource": "lib/src/services/flutter_service.dart; issue #1042 June 2026 reproduction",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2026-06-19T11:52:25Z",
+    "predatesFvm4Release": false,
+    "lastActivityBeforeCategorization": "2026-07-01T14:38:40Z",
+    "lastDiscussionAt": "2026-06-22T07:51:07Z"
+  }
 }

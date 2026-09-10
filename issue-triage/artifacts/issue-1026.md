@@ -79,3 +79,21 @@ The reporter shared a workaround script on 2026-04-27; that should be referenced
 ---
 **Validated by**: Code Agent
 **Date**: 2026-06-10
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: Flutter's global JDK setting is not isolated per FVM project; design explicit per-project JDK behavior.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Per-project JDK isolation is a design request beyond Flutter SDK selection. The comment's global-config deletion/rotation script is not an endorsed workaround and is unsafe for concurrent projects.
+- **Source**: lib/src/models/config_model.dart:ProjectConfig; issue #1026 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2026-04-05; postdates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

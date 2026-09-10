@@ -83,3 +83,28 @@ The issue appears to be mostly about fork naming/version metadata expectations. 
 ---
 **Validated by**: Code Agent  
 **Date**: 2026-03-03
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P3: custom fork tags can still lack standard Flutter metadata; generic fork support does not guarantee meaningful version output.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: support_or_unverified_bug / needs_info; GitHub label `need info`.
+- **Evidence level**: unverified_report. A custom patch tag reports 0.0.0-unknown, but no minimal public fork/metadata comparison proves FVM is responsible. Current fallback improvements do not prove this symptom fixed.
+- **Source**: lib/src/models/cache_flutter_version_model.dart; issue #1009 body/comments (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Compare direct fork flutter --version --machine with FVM output; supply a minimal accessible fork/ref and current versions.
+- **Age**: opened 2026-01-02; postdates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+
+## 2026-09-08 issue cleanup completed
+
+Requested a minimal public fork without company code and an FVM-versus-direct-SDK comparison at the same commit. Remains needs-info; the similar closed #773 report is not proof of a fix. No closure deadline.
+
+[Posted maintainer reply](https://github.com/leoafarias/fvm/issues/1009#issuecomment-5592554039). Original issue body and title were verified unchanged. Details: [cleanup audit](issue-cleanup-2026-09-08.md).

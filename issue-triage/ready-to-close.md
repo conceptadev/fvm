@@ -1,37 +1,23 @@
-# Current Issues Ready to Close
+# Current Closure Decisions
 
-Revalidated against live GitHub and `origin/main` on 2026-08-11. The nine
-evidence-backed closure candidates from this audit have now received explanatory
-comments and are closed: #575, #697, #720, #748, #754, #774, #791, #794, and
-#1055.
+Revalidated on 2026-09-08 against live GitHub and FVM 4.3.1.
 
-No additional open issue currently meets the evidence threshold for immediate
-closure. Valid feature requests remain open, and the seven uncertain bug reports
-remain in `needs_info/` rather than being closed solely because of age.
+- Completed: #584 (custom remotes), #600 (Android Studio documentation), #811 (Nix package), #578 (MacPorts).
+- Legacy support reports retired as not planned, not proven fixed: #731, #797, #809, #906.
+- Already closed; local records reconciled: #1021, #1046, #1064.
+- Consolidated, not fixed: #764 into #681, with its distinct requirements preserved.
+- Optional requests declined by the maintainer: #607 (Snap/Flatpak), #674 (flags/context refactor), #738 (Codespaces/devcontainer template). All three are closed as not planned, not completed.
 
-## Open Pull Requests
+See the [first closure audit](artifacts/issue-closure-audit-2026-09-08.md), [consolidation cleanup](artifacts/issue-cleanup-2026-09-08.md) and [latest legacy cleanup](artifacts/legacy-cleanup-2026-09-08.md) for the evidence and public replies.
 
-These are not closure recommendations; they are the complete live PR queue.
+## Follow-up after September 22
 
-- **#1013 - Archive install hardening**: addresses the sole P1 issue, #688.
-  It is stale/unstable and the Linux `Test` check is failing. Rebase, review the
-  drift, and fix CI before merge.
-- **#1054 - Fish SIGINT cleanup**: addresses #1046 with focused process changes
-  and PTY coverage. Run full CLI CI and manual fish verification before merge.
-- **#1053 - Docker ARM64**: addresses #762 with two workflow platform changes.
-  Validate a real multi-arch build and image manifests before merge.
-- **#1051 - `.gitignore` docs**: documentation-only correction. Verify the
-  canonical path and merge or close; Vercel authorization is not product CI.
-- **#1022 - Bump `pub_updater` to `^0.5.0`**: addresses P2 issue #1021.
-  It is mergeable, but it has no CLI test run and its Vercel status is failing;
-  rebase or rerun the current checks before merge.
-- **#828 - Dart SDK column in releases output**: older feature PR. Rebase and
-  review against the current table/output implementation before deciding to
-  merge or close.
+#759 (VS Code SDK selection) and #781 (Chocolatey installation) remain open with `need info`. Reporters have through September 22, 2026 to supply current diagnostics. On or after September 23, read any new replies before considering closure as not planned if a current reproduction is still missing. Reopen when useful diagnostic details arrive.
 
-## Summary
+No automatic closure is scheduled. #1009 and #1017 have no deadline. Do not close confirmed bugs, active IDE reports or other feature requests solely because they predate FVM 4.0.
 
-- **Issues ready for a maintainer reply and closure**: 0
-- **Issues closed in the 2026-08-11 cleanup**: 9
-- **Open pull requests**: 6
-- **P0/P1 closure candidates**: 0
+## Remaining queue
+
+36 open issues: 25 P2, 7 P3 and 4 needs-info; no P0/P1 identified. By evidence: 7 confirmed defects, 2 IDE compatibility reports, 4 needs-info and 23 feature/design requests. There are 80 archived records.
+
+The only open PR is #1053 (Docker ARM64). It remains on hold pending multi-architecture build and manifest validation. Release 4.3.1 is already published. No product fix or new PR was made during this cleanup.

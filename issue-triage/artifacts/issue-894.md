@@ -58,3 +58,21 @@ The cache is cloned with default Git permissions that mirror the invoking userâ€
 
 ## Notes for Follow-up
 - If we add group support, update `install.sh` to mention new flag and avoid assuming per-user ownership.
+
+## 2026-09-08 review â€” FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: deliberate group-writable shared caches require permissions/ownership design; ordinary single-user caches do not solve it.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Keep P2: deliberate group-writable shared caches require permissions/ownership design; ordinary single-user caches do not solve it.
+- **Source**: lib/src/services/cache_service.dart; lib/src/services/git_service.dart; issue #894 permission requirements (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2025-07-16; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

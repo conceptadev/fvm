@@ -6,5 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-696.md",
   "url": "https://github.com/leoafarias/fvm/issues/696",
-  "notes": "Project.localFvmPath ignores .fvmrc cachePath overrides. Add support for relative/absolute overrides, update docs, and test multi-project scenarios."
+  "notes": "Keep P2: request is to relocate the project .fvm metadata directory, not the SDK cache. Project.localFvmPath is fixed to project/.fvm. Design a separate metadata-path option; do not reinterpret cachePath.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: request is to relocate the project .fvm metadata directory, not the SDK cache. Project.localFvmPath is fixed to project/.fvm. Design a separate metadata-path option; do not reinterpret cachePath.",
+  "codeOrSource": "lib/src/models/project_model.dart:102,155; lib/src/models/config_model.dart",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-03-21T21:29:21Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-03-21T21:29:21Z",
+    "lastDiscussionAt": null
+  }
 }

@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-743.md",
   "url": "https://github.com/leoafarias/fvm/issues/743",
-  "notes": "Consider pointing VS Code to .fvm/flutter_sdk or using getFlutterSdkCommand."}
+  "notes": "Keep P2: generated VS Code settings still use project.localVersionSymlinkPath, not the stable .fvm/flutter_sdk alias. Manual opt-out is only a workaround.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P2: generated VS Code settings still use project.localVersionSymlinkPath, not the stable .fvm/flutter_sdk alias. Manual opt-out is only a workaround.",
+  "codeOrSource": "lib/src/workflows/update_vscode_settings.workflow.dart:_resolveSdkPath; lib/src/models/project_model.dart:115",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-06-22T12:53:14Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-06-22T12:53:14Z",
+    "lastDiscussionAt": null
+  }
+}

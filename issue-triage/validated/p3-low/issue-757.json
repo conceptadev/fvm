@@ -5,6 +5,20 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-757.md",
   "url": "https://github.com/conceptadev/fvm/issues/757",
-  "notes": "Generic forks do not cover Shorebird's separate CLI, SDK distribution, executable, and cache lifecycle; coordinate provider-scope decision with #1042.",
-  "priority": "p3-low"
+  "notes": "Keep P3: custom fork URLs address source selection, not the complete Shorebird tool/update lifecycle. Document supported boundaries before closing.",
+  "priority": "p3-low",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P3: custom fork URLs address source selection, not the complete Shorebird tool/update lifecycle. Document supported boundaries before closing.",
+  "codeOrSource": "lib/src/commands/fork_command.dart; issue #757 discussion; related #1042",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-07-31T12:38:23Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-10-09T14:39:50Z",
+    "lastDiscussionAt": "2024-10-09T14:39:49Z"
+  }
 }

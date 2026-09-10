@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-787.md",
   "url": "https://github.com/leoafarias/fvm/issues/787",
-  "notes": "Assess packaging wrapper scripts; document current PATH-based workflow."}
+  "notes": "Keep P3: rustup-style global project-aware flutter shims are not equivalent to fvm global plus PATH; September 2026 interest keeps the request current.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P3: rustup-style global project-aware flutter shims are not equivalent to fvm global plus PATH; September 2026 interest keeps the request current.",
+  "codeOrSource": "lib/src/commands/global_command.dart; docs/pages/documentation/guides/running-flutter.mdx",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-10-10T14:39:09Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2026-09-02T17:22:46Z",
+    "lastDiscussionAt": "2026-09-02T17:22:46Z"
+  }
+}

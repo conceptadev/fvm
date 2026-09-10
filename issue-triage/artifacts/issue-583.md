@@ -82,6 +82,30 @@ $ sed -n '1,80p' lib/src/commands/remove_command.dart
 - Consider integrating with issue #688 (archived installs) to ensure upgrade works for mirror environments.
 - Could also add a `fvm upgrade --all` for future multi-project support.
 
+## 2026-08-25 Revalidation Update
+- `origin/main` is FVM **4.3.0**. `fvm cleanup` / `fvm cleanup --remove-unused` now preview and delete unused cached SDKs and same-line patch upgrades. That is the complementary cleanup half mentioned in this issue's alternative approach.
+- There is still **no** `fvm upgrade` command, and `fvm remove` still has no `--force`. Users still cannot one-shot "install latest on this channel, switch global, optionally drop the previous pin."
+- Keep **P2**. Do not close: cleanup is not an upgrade workflow.
+
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+**Last revalidated**: 2026-08-25
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: fvm cleanup does not install upgrades or switch the global SDK; the upgrade workflow request remains.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Keep P2: fvm cleanup does not install upgrades or switch the global SDK; the upgrade workflow request remains.
+- **Source**: lib/src/commands/cleanup_command.dart; lib/src/runner.dart (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2023-12-07; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

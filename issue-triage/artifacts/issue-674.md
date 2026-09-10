@@ -1,5 +1,7 @@
 # Issue #674: Pass global level flags and options
 
+Current disposition — 2026-09-08: [closed as not planned](https://github.com/leoafarias/fvm/issues/674#issuecomment-5593075163) because the maintainer retired the optional flags/context refactor; existing partial context support does not complete the broader request. The historical proposals below are not scheduled. This is not a verified fix.
+
 ## Metadata
 - **Reporter**: Leo Farias (@leoafarias)
 - **Created**: 2024-02-29
@@ -96,3 +98,21 @@ Without a central registry, every workflow must receive flags explicitly. This l
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: command-scoped option/context design remains a valid refactoring request, not a pre-4-only bug.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: maintenance / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Partially implemented: skipInput/isCI already live in FvmContext. General force/skipSetup options are still passed through workflows. Retain as optional internal DX design, not a missing feature across all flags.
+- **Source**: lib/src/utils/context.dart:73,207; lib/src/workflows/ensure_cache.workflow.dart:142 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2024-02-29; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.

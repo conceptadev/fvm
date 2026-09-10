@@ -99,3 +99,34 @@ The CLI only understands explicit Flutter versions. Constraint metadata (`dart_s
 ---
 **Validated by**: Code Agent
 **Date**: 2025-10-31
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P2: Dart-constraint resolution, min/max commands and Dart fallback are distinct from displaying a Dart SDK column. Interest continued in May 2026.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: enhancement / backlog; GitHub label `triage:backlog`.
+- **Evidence level**: unimplemented_request. Keep P2: Dart-constraint resolution, min/max commands and Dart fallback are distinct from displaying a Dart SDK column. Interest continued in May 2026.
+- **Source**: lib/src/commands/dart_command.dart; lib/src/workflows/check_project_constraints.workflow.dart (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Retain the existing implementation plan as backlog; require design approval before runtime changes.
+- **Age**: opened 2024-02-23; predates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+## 2026-09-08 low-risk execution-plan follow-up
+
+Preserve the three original requests: Dart-constraint resolution, min/max-SDK execution and bundled-Dart fallback. Source recheck confirms fvm list has Dart Version but fvm releases does not. PR #828 was closed unmerged on September 4 by a documented UX/maintenance decision. Do not mark the releases-column suggestion shipped, close #648 on that basis, or reopen #828 automatically.
+
+Details and verification gates: [low-risk PR and consolidation plan](low-risk-pr-plan-2026-09-08.md). Existing priority/category are unchanged. No GitHub mutation or product fix was made in this planning pass.
+
+
+## 2026-09-08 issue cleanup completed
+
+Clarified the three original Dart requirements and the list-versus-releases column distinction. #828 stays closed unmerged; this enhancement remains open and linked to #751.
+
+[Posted maintainer reply](https://github.com/leoafarias/fvm/issues/648#issuecomment-5592552873). Original issue body and title were verified unchanged. Details: [cleanup audit](issue-cleanup-2026-09-08.md).

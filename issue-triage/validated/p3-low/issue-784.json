@@ -6,4 +6,19 @@
   "status": "validated",
   "artifact": "../../artifacts/issue-784.md",
   "url": "https://github.com/leoafarias/fvm/issues/784",
-  "notes": "Consider `fvm env` command to print PATH exports for temporary sessions."}
+  "notes": "Keep P3: temporary shell-scoped SDK selection differs from project/global selection; an env/export workflow remains unimplemented.",
+  "reviewedAt": "2026-09-08",
+  "issueType": "enhancement",
+  "reviewCategory": "backlog",
+  "evidenceLevel": "unimplemented_request",
+  "evidence": "Keep P3: temporary shell-scoped SDK selection differs from project/global selection; an env/export workflow remains unimplemented.",
+  "codeOrSource": "lib/src/runner.dart command registration; lib/src/commands/exec_command.dart",
+  "nextAction": "Retain the existing implementation plan as backlog; require design approval before runtime changes.",
+  "githubTriageLabel": "triage:backlog",
+  "ageContext": {
+    "createdAt": "2024-09-20T10:04:48Z",
+    "predatesFvm4Release": true,
+    "lastActivityBeforeCategorization": "2024-09-23T07:16:35Z",
+    "lastDiscussionAt": null
+  }
+}

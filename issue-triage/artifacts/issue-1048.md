@@ -90,3 +90,27 @@ The flag means “do not manage VS Code settings.” Detection of VS Code / `.vs
 ## Notes
 - Good first issue / quick win.
 - Reporter’s expected config (pin + self-managed `.vscode` + `updateVscodeSettings: false`) is a legitimate dual-IDE monorepo setup.
+
+## 2026-09-08 review — FVM 4.3.1
+
+This dated review supersedes conflicting assumptions in the historical plan above.
+
+Keep P3: intentionally disabling updateVscodeSettings still produces a warning asking the user to remove the setting.
+
+The live report and comments were reviewed during the [full backlog audit](issue-closure-audit-2026-09-08.md). Retained for the existing implementation/diagnostic plan with the scope corrections above; no fix was made, and no platform-specific reproduction is claimed. Pre-4.0 age alone is not a closure reason.
+
+## 2026-09-08 categorization follow-up
+
+- **Type / state**: bug / confirmed; GitHub label `triage:confirmed`.
+- **Evidence level**: code_inspection. The explicit updateVscodeSettings:false branch still warns that users should remove the setting.
+- **Source**: lib/src/workflows/update_vscode_settings.workflow.dart:271,280 (FVM source baseline: origin/main a6d93976d443082d73d4718750713e6248de6b84).
+- **Next action**: Keep the opt-out behavior and remove/downgrade the warning; test that intentional opt-out stays quiet.
+- **Age**: opened 2026-07-16; postdates FVM 4.0. Label changes are not new user confirmations.
+
+This category supersedes any earlier suggestion that every open item is a confirmed bug. See the [complete category review](open-issue-categories-2026-09-08.md); historical priority denotes scheduling, not proof of a defect.
+
+## 2026-09-08 low-risk execution-plan follow-up
+
+Ready to implement as PR 1, not implemented. Remove only the warning in the disabled-settings branch; preserve debug/return, defaults, SDK references and the unrelated unpinned-project warning. Use the existing Logger.outputs for regression assertions and verify existing settings/workspace files remain byte-for-byte unchanged. Run the required branch smoke test after implementation.
+
+Details and verification gates: [low-risk PR and consolidation plan](low-risk-pr-plan-2026-09-08.md). Existing priority/category are unchanged. No GitHub mutation or product fix was made in this planning pass.
