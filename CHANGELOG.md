@@ -1,7 +1,7 @@
 ## 4.3.2
 
-* fix: forward SIGTERM received by FVM to its proxied child on macOS/Linux, wait for child cleanup, and exit with status 143. This also works for non-interactive callers and preserves terminal Ctrl+C cleanup.
-* fix: launch proxied executables directly on macOS/Linux so cancellation reaches the command instead of an intermediary shell. Use an explicit shell with `fvm exec` for shell builtins; Windows launch behavior is unchanged.
+* fix: support opt-in PID-only SIGTERM forwarding with `FVM_FORWARD_SIGTERM=true` on macOS/Linux: wait for proxied child cleanup and exit 143. Default process-group cancellation and terminal Ctrl+C behavior remain unchanged.
+* fix: launch POSIX proxies directly when PID-only forwarding is enabled, preventing an intermediary shell from absorbing cancellation. Default shell and Windows launch behavior remain unchanged.
 * fix: preserve live command input/output and cancellation when falling back to the system PATH without a project or global SDK selection.
 
 ## 4.3.1

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:fvm/src/models/config_model.dart';
@@ -28,11 +29,15 @@ Future<void> main() async {
 
   for (final useFallback in [false, true]) {
     group(useFallback ? 'system PATH fallback' : 'direct process', () {
-      for (final terminate in [true, false]) {
+      for (final mode in ['pid', 'normal', 'group']) {
+        final terminate = mode != 'normal';
+        final signalGroup = mode == 'group';
         test(
-          terminate
-              ? 'SIGTERM to a non-TTY parent reaches its child and waits for cleanup'
-              : 'normal inherited-stdio exit releases signal listeners and preserves status',
+          signalGroup
+              ? 'default group SIGTERM reaches the child once and preserves cleanup'
+              : terminate
+                  ? 'SIGTERM to a non-TTY parent reaches its child and waits for cleanup'
+                  : 'normal inherited-stdio exit releases signal listeners and preserves status',
           () async {
             final directory =
                 await Directory.systemTemp.createTemp('fvm_sigterm_');
@@ -48,15 +53,19 @@ Future<void> main() async {
                 _directoryKey: directory.path,
                 'FVM_SIGTERM_TEST_COMPLETE': '${!terminate}',
                 'FVM_SIGTERM_TEST_FALLBACK': '$useFallback',
+                'FVM_SIGTERM_TEST_GROUP': '$signalGroup',
+                'FVM_FORWARD_SIGTERM': '${!signalGroup}',
               },
             );
             final diagnostics = StringBuffer();
             final ready = Completer<int>();
+            var ownsGroup = false;
             final output = parent.stdout
                 .transform(utf8.decoder)
                 .transform(const LineSplitter())
                 .listen((line) {
               diagnostics.writeln(line);
+              if (line == 'OWNED_GROUP:${parent.pid}') ownsGroup = true;
               if (line.startsWith('CHILD_READY:') && !ready.isCompleted) {
                 ready
                     .complete(int.parse(line.substring('CHILD_READY:'.length)));
@@ -64,6 +73,10 @@ Future<void> main() async {
             });
             final errors =
                 parent.stderr.transform(utf8.decoder).listen(diagnostics.write);
+            final streamsDone = Future.wait([
+              output.asFuture<void>(),
+              errors.asFuture<void>(),
+            ]);
             int? childPid;
             var childExited = false;
             try {
@@ -71,15 +84,23 @@ Future<void> main() async {
               await parent.stdin.flush();
               childPid =
                   await ready.future.timeout(const Duration(seconds: 20));
-              if (terminate) expect(parent.kill(ProcessSignal.sigterm), isTrue);
+              if (signalGroup) {
+                expect(ownsGroup, isTrue);
+                expect(_signalGroup(parent.pid, ProcessSignal.sigterm), 0);
+              } else if (terminate) {
+                expect(parent.kill(ProcessSignal.sigterm), isTrue);
+              }
               final code =
                   await parent.exitCode.timeout(const Duration(seconds: 10));
-              expect(code, terminate ? 143 : 7, reason: diagnostics.toString());
+              await streamsDone.timeout(const Duration(seconds: 10));
+              expect(code, signalGroup ? -15 : (terminate ? 143 : 7),
+                  reason: diagnostics.toString());
               expect(
                 await File(p.join(directory.path, 'events')).readAsLines(),
                 [
                   'child cleanup',
-                  terminate ? 'parent exit 143' : 'parent result 7'
+                  if (!signalGroup)
+                    terminate ? 'parent exit 143' : 'parent result 7'
                 ],
               );
               childExited = true;
@@ -88,6 +109,8 @@ Future<void> main() async {
               expect(diagnostics.toString(),
                   contains('CHILD_STDIN:fixture input'));
               if (terminate) {
+                expect(RegExp('CHILD_TERM:').allMatches(diagnostics.toString()),
+                    hasLength(1));
                 expect(diagnostics.toString(),
                     isNot(contains('WORKFLOW_CONTINUED')));
               }
@@ -103,6 +126,7 @@ Future<void> main() async {
                 Process.killPid(child, ProcessSignal.sigkill);
               }
               parent.kill(ProcessSignal.sigkill);
+              if (ownsGroup) _signalGroup(parent.pid, ProcessSignal.sigkill);
               await parent.exitCode;
               await output.cancel();
               await errors.cancel();
@@ -121,6 +145,14 @@ Future<void> main() async {
 
 Future<void> _runParent() async {
   final directory = Platform.environment[_directoryKey]!;
+  if (Platform.environment['FVM_SIGTERM_TEST_GROUP'] == 'true') {
+    // Only this fixture creates a session; its parent may then safely signal
+    // the private group without touching the test runner's own process group.
+    final setsid = DynamicLibrary.process()
+        .lookupFunction<Int32 Function(), int Function()>('setsid');
+    if (setsid() != pid) throw StateError('Could not create fixture session');
+    stdout.writeln('OWNED_GROUP:$pid');
+  }
   final separator = Platform.isWindows ? ';' : ':';
   final context = FvmContext.create(
     configOverrides: AppConfig(
@@ -169,9 +201,13 @@ Future<void> _runParent() async {
 
 Future<void> _runChild() async {
   final received = Completer<void>();
+  var signalCount = 0;
   final subscription = Platform.isWindows
       ? null
       : ProcessSignal.sigterm.watch().listen((_) {
+          stdout.writeln('CHILD_TERM:${++signalCount}');
+          // Model tools that escalate a repeated interrupt during cleanup.
+          if (signalCount > 1) exit(23);
           if (!received.isCompleted) received.complete();
         });
   try {
@@ -192,4 +228,11 @@ Future<void> _runChild() async {
   } finally {
     await subscription?.cancel();
   }
+}
+
+int _signalGroup(int groupId, ProcessSignal signal) {
+  final kill = DynamicLibrary.process()
+      .lookupFunction<Int32 Function(Int32, Int32), int Function(int, int)>(
+          'kill');
+  return kill(-groupId, signal.signalNumber);
 }

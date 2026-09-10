@@ -120,7 +120,9 @@ class ProcessService extends ContextualService {
     Process? activeProcess;
     var interrupted = false;
     var terminated = false;
-    if (!Platform.isWindows) {
+    final forwardSigterm = !Platform.isWindows &&
+        context.environment['FVM_FORWARD_SIGTERM'] == 'true';
+    if (forwardSigterm) {
       // CI and process supervisors may signal only FVM, rather than the
       // terminal's foreground group. Keep the child owned until it exits.
       sigtermSubscription = ProcessSignal.sigterm.watch().listen((_) {
@@ -143,10 +145,9 @@ class ProcessService extends ContextualService {
         workingDirectory: workingDirectory,
         environment: effectiveEnvironment,
         includeParentEnvironment: !scrubGitEnv,
-        // A POSIX shell may remain between FVM and the executable, so killing
-        // that shell can orphan the command. Windows still needs its shell
-        // for SDK batch files and executable lookup through the supplied PATH.
-        runInShell: runInShell ?? Platform.isWindows,
+        // PID-only forwarding must reach the executable, not an intermediary
+        // POSIX shell. Otherwise preserve the existing shell launch behavior.
+        runInShell: runInShell ?? !forwardSigterm,
         mode: ProcessStartMode.inheritStdio,
       );
 
