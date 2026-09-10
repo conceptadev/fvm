@@ -1,7 +1,7 @@
 ## 4.3.2
 
 * fix: support opt-in PID-only SIGTERM forwarding with `FVM_FORWARD_SIGTERM=true` on macOS/Linux: wait for proxied child cleanup and exit 143. Default process-group cancellation and terminal Ctrl+C behavior remain unchanged.
-* fix: launch POSIX proxies directly when PID-only forwarding is enabled, preventing an intermediary shell from absorbing cancellation. Default shell and Windows launch behavior remain unchanged.
+* fix: launch POSIX proxies directly when PID-only forwarding is enabled, preventing an intermediary shell from absorbing cancellation. With forwarding enabled, a missing executable fails with a `ProcessException` and exit status 2 instead of the shell's 127. Default shell and Windows launch behavior remain unchanged.
 * fix: preserve live command input/output and cancellation when falling back to the system PATH without a project or global SDK selection.
 
 ## 4.3.1

@@ -76,8 +76,10 @@ two signal-delivery modes.
 
 When forwarding is enabled, POSIX commands launch directly so an intermediary
 shell cannot absorb cancellation. Shell builtins then need an explicit shell,
-for example `fvm exec sh -c 'echo hello'`. Default and Windows shell behavior
-are unchanged; the forwarding option has no effect on Windows.
+for example `fvm exec sh -c 'echo hello'`, and a command that cannot be found
+on `PATH` fails with a "No such file or directory" error and exit status `2`
+rather than the shell's `127`. Default and Windows shell behavior are
+unchanged; the forwarding option has no effect on Windows.
 
 Forwarding does not supervise every descendant or detect the death of FVM's
 own parent. Children that ignore `SIGTERM` need the runner's timeout policy;
