@@ -1,6 +1,7 @@
 ## 4.3.2
 
 * fix: forward SIGTERM received by FVM to its proxied child on macOS/Linux, wait for child cleanup, and exit with status 143. This also works for non-interactive callers and preserves terminal Ctrl+C cleanup.
+* fix: launch proxied executables directly on macOS/Linux so cancellation reaches the command instead of an intermediary shell. Use an explicit shell with `fvm exec` for shell builtins; Windows launch behavior is unchanged.
 
 ## 4.3.1
 

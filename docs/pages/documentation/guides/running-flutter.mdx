@@ -58,6 +58,11 @@ to its direct child, waits for that child to finish cleanup, then exits with
 status `143`. This also applies when stdin is not a terminal. Terminal Ctrl+C
 continues to wait for child cleanup before exiting with status `130`.
 
+Proxied commands launch directly on macOS and Linux so an intermediary shell
+cannot absorb cancellation. To run a shell builtin or shell syntax through
+`fvm exec`, invoke the shell explicitly, for example `fvm exec sh -c 'echo hello'`.
+Windows retains its shell-based SDK launch behavior.
+
 This does not supervise every descendant or detect the death of FVM's own
 parent. A CI runner that owns a separate process group should cancel that group
 and wait for it to exit. Children that ignore `SIGTERM` may require the runner's

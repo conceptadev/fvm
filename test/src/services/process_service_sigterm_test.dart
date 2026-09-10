@@ -66,7 +66,6 @@ Future<void> main() async {
           final code =
               await parent.exitCode.timeout(const Duration(seconds: 10));
           expect(code, terminate ? 143 : 7, reason: diagnostics.toString());
-          childExited = true;
           expect(
             await File(p.join(directory.path, 'events')).readAsLines(),
             [
@@ -74,6 +73,7 @@ Future<void> main() async {
               terminate ? 'parent exit 143' : 'parent result 7'
             ],
           );
+          childExited = true;
           expect(diagnostics.toString(), contains('PARENT_NON_TTY:true'));
           if (terminate) {
             expect(
@@ -115,9 +115,14 @@ Future<void> _runParent() async {
   stdout.writeln('PARENT_NON_TTY:${!context.stdinHasTerminal}');
   try {
     final result = await context.get<ProcessService>().run(
-          Platform.resolvedExecutable,
+          p.basename(Platform.resolvedExecutable),
           args: [Platform.script.toFilePath()],
-          environment: {...Platform.environment, _roleKey: 'child'},
+          environment: {
+            ...Platform.environment,
+            _roleKey: 'child',
+            'PATH': '${p.dirname(Platform.resolvedExecutable)}:'
+                '${Platform.environment['PATH'] ?? ''}',
+          },
           echoOutput: true,
           throwOnError: false,
         );

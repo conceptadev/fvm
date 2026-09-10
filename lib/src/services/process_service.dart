@@ -89,7 +89,7 @@ class ProcessService extends ContextualService {
     Map<String, String>? environment,
     bool throwOnError = true,
     bool echoOutput = false,
-    bool runInShell = true,
+    bool? runInShell,
   }) async {
     logger
       ..debug('')
@@ -106,7 +106,7 @@ class ProcessService extends ContextualService {
         workingDirectory: workingDirectory,
         environment: effectiveEnvironment,
         includeParentEnvironment: !scrubGitEnv,
-        runInShell: runInShell,
+        runInShell: runInShell ?? true,
       );
 
       if (throwOnError) {
@@ -143,7 +143,10 @@ class ProcessService extends ContextualService {
         workingDirectory: workingDirectory,
         environment: effectiveEnvironment,
         includeParentEnvironment: !scrubGitEnv,
-        runInShell: runInShell,
+        // A POSIX shell may remain between FVM and the executable, so killing
+        // that shell can orphan the command. Windows still needs its shell
+        // for SDK batch files and executable lookup through the supplied PATH.
+        runInShell: runInShell ?? Platform.isWindows,
         mode: ProcessStartMode.inheritStdio,
       );
 
