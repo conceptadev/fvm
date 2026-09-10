@@ -57,6 +57,8 @@ On macOS and Linux, FVM forwards `SIGTERM` received during a proxied command
 to its direct child, waits for that child to finish cleanup, then exits with
 status `143`. This also applies when stdin is not a terminal. Terminal Ctrl+C
 continues to wait for child cleanup before exiting with status `130`.
+The same behavior applies when no project or global SDK is selected and FVM
+falls back to the system PATH; command input and output remain live.
 
 Proxied commands launch directly on macOS and Linux so an intermediary shell
 cannot absorb cancellation. To run a shell builtin or shell syntax through
