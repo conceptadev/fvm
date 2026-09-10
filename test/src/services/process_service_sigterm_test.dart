@@ -13,6 +13,7 @@ import 'package:test/test.dart';
 
 const _roleKey = 'FVM_SIGTERM_TEST_ROLE';
 const _directoryKey = 'FVM_SIGTERM_TEST_DIRECTORY';
+const _harnessKey = 'FVM_SIGTERM_TEST_HARNESS';
 
 // A real non-TTY parent exercises the production inherited-stdio path, which
 // TestFactory's test context intentionally bypasses.
@@ -26,6 +27,29 @@ Future<void> main() async {
     await _runChild();
     return;
   }
+
+  Directory? harnessDirectory;
+  late String harnessPath;
+  setUpAll(() async {
+    final directory =
+        await Directory.systemTemp.createTemp('fvm_signal_harness_');
+    harnessDirectory = directory;
+    harnessPath = p.join(directory.path, 'harness.dill');
+    // Repeated source compilation can consume the readiness deadline on CI.
+    // All fixture processes use this one kernel compiled by the current SDK.
+    final result = await Process.run(Platform.resolvedExecutable, [
+      'compile',
+      'kernel',
+      p.join(Directory.current.path,
+          'test/src/services/process_service_sigterm_test.dart'),
+      '-o',
+      harnessPath,
+    ]);
+    expect(result.exitCode, 0, reason: '${result.stdout}\n${result.stderr}');
+  });
+  tearDownAll(() async {
+    await harnessDirectory?.delete(recursive: true);
+  });
 
   for (final useFallback in [false, true]) {
     group(useFallback ? 'system PATH fallback' : 'direct process', () {
@@ -43,14 +67,12 @@ Future<void> main() async {
                 await Directory.systemTemp.createTemp('fvm_sigterm_');
             final parent = await Process.start(
               Platform.resolvedExecutable,
-              [
-                p.join(Directory.current.path,
-                    'test/src/services/process_service_sigterm_test.dart')
-              ],
+              [harnessPath],
               environment: {
                 ...Platform.environment,
                 _roleKey: 'parent',
                 _directoryKey: directory.path,
+                _harnessKey: harnessPath,
                 'FVM_SIGTERM_TEST_COMPLETE': '${!terminate}',
                 'FVM_SIGTERM_TEST_FALLBACK': '$useFallback',
                 'FVM_SIGTERM_TEST_GROUP': '$signalGroup',
@@ -82,8 +104,11 @@ Future<void> main() async {
             try {
               parent.stdin.writeln('fixture input');
               await parent.stdin.flush();
-              childPid =
-                  await ready.future.timeout(const Duration(seconds: 20));
+              childPid = await ready.future.timeout(
+                const Duration(seconds: 20),
+                onTimeout: () => throw StateError(
+                    'Fixture did not become ready:\n$diagnostics'),
+              );
               if (signalGroup) {
                 expect(ownsGroup, isTrue);
                 expect(_signalGroup(parent.pid, ProcessSignal.sigterm), 0);
@@ -174,7 +199,7 @@ Future<void> _runParent() async {
   stdout.writeln('PARENT_NON_TTY:${!context.stdinHasTerminal}');
   try {
     final command = p.basename(Platform.resolvedExecutable);
-    final args = [Platform.script.toFilePath()];
+    final args = [Platform.environment[_harnessKey]!];
     final result = Platform.environment['FVM_SIGTERM_TEST_FALLBACK'] == 'true'
         ? await RunConfiguredFlutterWorkflow(context).call(command, args: args)
         : await context.get<ProcessService>().run(
